@@ -1,6 +1,8 @@
 # ng-wishlist
 A simple project on AngularJS with React, that take care of your wish list!
 
+App created with: Angular v1.5.6, React v15, Bootstrap 3, Visual Studio 2015
+
 Users should be able to:
 --------------------------------
 - Register/Login to the App
