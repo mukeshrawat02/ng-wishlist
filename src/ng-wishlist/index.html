@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style sheets -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
 </head>
 <body ng-app="favListerApp">
+    <div>
+
+    </div>
+
 
     <!-- Library Scripts -->
     <script src="bower_components/angular/angular.min.js"></script>
@@ -23,5 +27,11 @@
 
     <!-- Services -->
     <script src="common/services/common.services.js"></script>
+    <script src="common/services/authenticationService.js"></script>
+    <script src="common/services/userService.js"></script>
+
+    <!--Controllers-->
+    <script src="app/login/loginController.js"></script>
+    <script src="app/registration/registrationController.js"></script>
 </body>
 </html>

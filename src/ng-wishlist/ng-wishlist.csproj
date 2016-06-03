@@ -67,6 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\login\loginController.js" />
+    <Content Include="app\login\loginView.html" />
+    <Content Include="app\registration\registrationController.js" />
+    <Content Include="app\registration\registrationView.html" />
     <Content Include="bower_components\angular-bootstrap\.gitignore" />
     <Content Include="bower_components\angular-bootstrap\index.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
@@ -218,6 +222,8 @@
     <Content Include="bower_components\react\react-with-addons.min.js" />
     <Content Include="bower_components\react\react.js" />
     <Content Include="bower_components\react\react.min.js" />
+    <Content Include="common\services\authenticationService.js" />
+    <Content Include="common\services\userService.js" />
     <Content Include="css\app.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
@@ -375,6 +381,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\users\" />
+    <Folder Include="app\wishlist\" />
     <Folder Include="fonts\" />
     <Folder Include="images\" />
   </ItemGroup>
