@@ -1,6 +1,8 @@
 {
-  "name": "ASP.NET",
-  "private": true,
+  "name": "ng-wishlist",
+  "description": "A project on AngularJS with React, that take care of your wishlist items!",
+  "version": "0.0.1",
+  "license": "GPL",
   "dependencies": {
     "angular": "^1.5.6",
     "angular-route": "^1.5.6",
