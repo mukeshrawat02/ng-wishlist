@@ -222,9 +222,9 @@
     <Content Include="bower_components\react\react-with-addons.min.js" />
     <Content Include="bower_components\react\react.js" />
     <Content Include="bower_components\react\react.min.js" />
-    <Content Include="common\services\authenticationService.js" />
-    <Content Include="common\services\userService.js" />
-    <Content Include="css\app.css" />
+    <Content Include="app\login\authenticationService.js" />
+    <Content Include="app\users\userService.js" />
+    <Content Include="assets\css\app.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include=".bowerrc" />
@@ -351,7 +351,7 @@
     <Content Include="bower_components\react\bower.json" />
     <Content Include="bower_components\react\LICENSE" />
     <Content Include="bower_components\react\PATENTS" />
-    <Content Include="common\services\common.services.js" />
+    <Content Include="shared\services\common.services.js" />
     <Content Include="bower_components\angular-resource\.bower.json" />
     <Content Include="bower_components\angular-resource\angular-resource.min.js.map" />
     <Content Include="bower_components\angular-resource\bower.json" />
@@ -381,10 +381,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\users\" />
     <Folder Include="app\wishlist\" />
-    <Folder Include="fonts\" />
-    <Folder Include="images\" />
+    <Folder Include="assets\fonts\" />
+    <Folder Include="assets\images\" />
+    <Folder Include="shared\directives\" />
+    <Folder Include="shared\filters\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
