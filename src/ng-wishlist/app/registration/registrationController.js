@@ -9,7 +9,7 @@
                         registrationController);
 
     function registrationController() {
-        var vm = this;
+        var self = this;
     };
 
 }());
