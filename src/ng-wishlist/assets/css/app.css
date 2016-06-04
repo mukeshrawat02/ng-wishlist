@@ -7,3 +7,13 @@ body {
     background-color: #ffffff;
     font-family: 'HelveticaNeueW01-45Ligh', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.fa-list-alt {
+    color: #ffffff;
+}
+
+.logo-container {
+   font-family: 'Tillana', cursive;
+    font-size: 20px;
+    color: #ffffff;
+}
