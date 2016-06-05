@@ -3,17 +3,67 @@
  */
 body {
     font-size: 14px;
-    color: #333333;
+    line-height: 1.8;
+    color: #818181;
     background-color: #ffffff;
-    font-family: 'HelveticaNeueW01-45Ligh', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 .fa-list-alt {
     color: #ffffff;
 }
 
+
 .logo-container {
-   font-family: 'Tillana', cursive;
+    font-family: 'Tillana', cursive;
     font-size: 20px;
     color: #ffffff;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #E23A0B;
+    z-index: 9999;
+    border: 0;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 2px;
+}
+
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #E23A0B !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.jumbotron {
+    background-color: #F8C353;
+    color: #ffffff;
+    padding: 90px 0px 35px 0px;
+    font-family: Montserrat, sans-serif;
+}
+
+    .jumbotron p {
+        font-size: 16px;
+    }
+
+.container-fluid {
+    padding: 50px 50px;
+}
+
+.thumbnail {
+    border: none;
+    background-color: #C5D4FF;
+}
+
+.thumbnail p {
+    color: #555;
 }

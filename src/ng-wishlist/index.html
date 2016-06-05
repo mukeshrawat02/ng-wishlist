@@ -8,12 +8,14 @@
     <!-- Style sheets -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href='https://fonts.googleapis.com/css?family=Tillana:700' rel='stylesheet' type='text/css'><link href="assets/css/app.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Tillana:700' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="assets/css/app.css" rel="stylesheet" />
 </head>
 <body ng-app="favListerApp">
     <header>
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -45,9 +47,51 @@
         </nav>
     </header>
     <section id="main">
-        <div class="container-fluid">
-            <div ui-view></div>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1>Let's create your wishlist!</h1>
+                <p>
+                    favLister is your friendly tool that will help you to collect, organize and keep track of the things that you desire for.
+                    <br />You can also share those with your close group.
+                </p>
+                <button type="button" class="btn btn-danger">
+                    SIGN UP&nbsp;&nbsp;<i class="fa fa-play-circle fa-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="assets/images/collect.png" alt="Collect your wishlist">
+                        <p>
+                            <h3>Collect</h3>
+                        </p>
+                        <p>xxx</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="assets/images/organize.png" alt="Organize your items">
+                        <p>
+                            <h3>Organize</h3>
+                        </p>
+                        <p>xxx</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="assets/images/share.png" alt="Share with friends">
+                        <p>
+                            <h3>Share</h3>
+                        </p>
+                        <p>xxx</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div ui-view></div>
+            </div>
         </div>
+
     </section>
     <footer></footer>
 

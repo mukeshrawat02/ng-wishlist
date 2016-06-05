@@ -71,6 +71,9 @@
     <Content Include="app\login\loginView.html" />
     <Content Include="app\registration\registrationController.js" />
     <Content Include="app\registration\registrationView.html" />
+    <Content Include="assets\images\collect.png" />
+    <Content Include="assets\images\organize.png" />
+    <Content Include="assets\images\share.png" />
     <Content Include="bower_components\angular-bootstrap\.gitignore" />
     <Content Include="bower_components\angular-bootstrap\index.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
@@ -425,7 +428,6 @@
   <ItemGroup>
     <Folder Include="app\wishlist\" />
     <Folder Include="assets\fonts\" />
-    <Folder Include="assets\images\" />
     <Folder Include="shared\directives\" />
     <Folder Include="shared\filters\" />
   </ItemGroup>
