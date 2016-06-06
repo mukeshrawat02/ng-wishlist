@@ -13,7 +13,8 @@
 
     app.config(["$stateProvider",
                 "$urlRouterProvider",
-                 function ($stateProvider, $urlRouterProvider) {
+                "$locationProvider",
+                 function ($stateProvider, $urlRouterProvider, $locationProvider) {
                      $urlRouterProvider.otherwise("/home");
 
                      $stateProvider
@@ -34,6 +35,8 @@
                              templateUrl: "app/registration/registrationView.html",
                              controller: "RegistrationController as self"
                          });
+
+                     $locationProvider.html5Mode(true);
                  }]
     );
 
