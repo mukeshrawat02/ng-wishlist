@@ -26,13 +26,13 @@
                          .state("login", {
                              url: "/login",
                              templateUrl: "app/login/loginView.html",
-                             controller: "loginController as self"
+                             controller: "LoginController as self"
                          })
                          // registration
                          .state("register", {
                              url: "/register",
                              templateUrl: "app/registration/registrationView.html",
-                             controller: "registrationController as self"
+                             controller: "RegistrationController as self"
                          });
                  }]
     );
