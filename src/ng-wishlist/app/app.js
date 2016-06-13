@@ -21,22 +21,27 @@
                          // home
                          .state("home", {
                              url: "/home",
-                             templateUrl: "app/home/landingView.html"
+                             templateUrl: "../app/home/landingView.html"
                          })
                          // login
                          .state("login", {
                              url: "/login",
-                             templateUrl: "app/login/loginView.html",
+                             templateUrl: "../app/login/loginView.html",
                              controller: "LoginController as self"
                          })
                          // registration
                          .state("register", {
                              url: "/register",
-                             templateUrl: "app/registration/registrationView.html",
+                             templateUrl: "../app/registration/registrationView.html",
                              controller: "RegistrationController as self"
+                         })
+                        //forgot Password
+                         .state("forgotPassword", {
+                             url: "/forgotPassword",
+                             templateUrl: "../app/login/forgotPassword.html",
+                             controller: "ForgotPasswordController as self"
                          });
-
-                     $locationProvider.html5Mode(true);
+                     //$locationProvider.html5Mode(true);
                  }]
     );
 

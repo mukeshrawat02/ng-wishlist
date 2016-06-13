@@ -84,3 +84,33 @@ body {
     background-color: #E23A0B;
     color: #fff;
 }
+
+/* Login form */
+.mainbox {
+    margin-top: 50px;
+}
+
+.panel-primary {
+    background-color: #fff;
+    border-color: #000;
+}
+
+    .panel-primary > .panel-heading {
+        color: #ffffff;
+        background-color: #C5D4FF;
+        border-color: #000;
+    }
+
+.panel-title {
+    font-size: 15px;
+}
+
+.text-right {
+    text-align: right;
+    float: right;
+}
+
+.hyper-link {
+    color: cadetblue;
+    font-size: 13px;
+}
