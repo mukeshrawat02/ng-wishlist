@@ -21,24 +21,24 @@
                          // home
                          .state("home", {
                              url: "/home",
-                             templateUrl: "../app/home/landingView.html"
+                             templateUrl: "../app_client/home/landingView.html"
                          })
                          // login
                          .state("login", {
                              url: "/login",
-                             templateUrl: "../app/login/loginView.html",
+                             templateUrl: "../app_client/login/loginView.html",
                              controller: "LoginController as self"
                          })
                          // registration
                          .state("register", {
                              url: "/register",
-                             templateUrl: "../app/registration/registrationView.html",
+                             templateUrl: "../app_client/registration/registrationView.html",
                              controller: "RegistrationController as self"
                          })
                         //forgot Password
                          .state("forgotPassword", {
                              url: "/forgotPassword",
-                             templateUrl: "../app/login/forgotPassword.html",
+                             templateUrl: "../app_client/login/forgotPassword.html",
                              controller: "ForgotPasswordController as self"
                          });
                      //$locationProvider.html5Mode(true);

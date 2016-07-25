@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="app_client\app.js" />
     <Content Include="app_client\home\landingView.html" />
+    <Content Include="app_client\login\forgotPassword.html" />
     <Content Include="app_client\login\loginController.js" />
     <Content Include="app_client\login\loginView.html" />
     <Content Include="app_client\registration\registrationController.js" />
