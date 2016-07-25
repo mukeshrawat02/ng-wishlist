@@ -79,6 +79,7 @@
     <Content Include="app_client\login\authenticationService.js" />
     <Content Include="app_client\users\userService.js" />
     <Content Include="assets\css\app.css" />
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include=".bowerrc" />
