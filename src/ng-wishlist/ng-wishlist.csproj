@@ -104,7 +104,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app_api\controllers\" />
     <Folder Include="app_client\wishlist\" />
     <Folder Include="assets\fonts\" />
     <Folder Include="assets\js\" />

@@ -4,5 +4,8 @@
   "description": "ng-wishlist.Server",
   "main": "server.js",
   "author": "Mukesh Rawat",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mongodb": "^2.2.4"
+  }
 }
