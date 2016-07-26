@@ -1,7 +1,7 @@
 ﻿/**
  * Created by Mukesh on 06/03/2016.
  */
-(function () {
+(function (angular) {
     "use strict";
 
     angular.module("common.services")
@@ -12,4 +12,4 @@
 
     };
 
-}());
+}(window.angular));

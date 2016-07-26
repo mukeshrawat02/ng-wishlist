@@ -1,7 +1,7 @@
 ﻿/**
  * Created by Mukesh on 06/03/2016.
  */
-(function () {
+(function (angular) {
     "use strict";
 
     var app = angular.module("favListerApp",
@@ -45,4 +45,4 @@
                  }]
     );
 
-}());
+}(window.angular));
