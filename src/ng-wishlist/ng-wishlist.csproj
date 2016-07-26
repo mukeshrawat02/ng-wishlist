@@ -86,6 +86,10 @@
     <Content Include="bower.json" />
     <Content Include="shared\services\common.services.js" />
     <Content Include="package.json" />
+    <Content Include="assets\css\app.scss" />
+    <Content Include="assets\css\_modules\_registration.scss" />
+    <Content Include="assets\css\_modules\_navigationBar.scss" />
+    <Content Include="assets\css\_modules\_common.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,7 +104,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app_api\" />
+    <Folder Include="app_api\controllers\" />
     <Folder Include="app_client\wishlist\" />
     <Folder Include="assets\fonts\" />
     <Folder Include="assets\js\" />

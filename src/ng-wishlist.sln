@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ng-wishlist", "ng-wishlist\ng-wishlist.csproj", "{29D8AD02-47DE-4E89-B907-8A47B0D455E3}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ng-wishlist.Server", "ng-wishlist.Server\ng-wishlist.Server.njsproj", "{A1292F93-7BF5-40AF-BDEB-55EB113C2BB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29D8AD02-47DE-4E89-B907-8A47B0D455E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D8AD02-47DE-4E89-B907-8A47B0D455E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D8AD02-47DE-4E89-B907-8A47B0D455E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1292F93-7BF5-40AF-BDEB-55EB113C2BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1292F93-7BF5-40AF-BDEB-55EB113C2BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1292F93-7BF5-40AF-BDEB-55EB113C2BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1292F93-7BF5-40AF-BDEB-55EB113C2BB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

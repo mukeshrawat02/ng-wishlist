@@ -10,6 +10,10 @@
 
     function registrationController() {
         var self = this;
+
+        self.save = function() {
+
+        };
     };
 
 }());

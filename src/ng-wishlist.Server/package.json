@@ -1,0 +1,8 @@
+{
+  "name": "ng-wishlist.server",
+  "version": "1.0.0",
+  "description": "ng-wishlist.Server",
+  "main": "server.js",
+  "author": "Mukesh Rawat",
+  "license": "GPL-3.0"
+}
