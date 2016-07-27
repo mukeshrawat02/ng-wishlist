@@ -32,15 +32,22 @@
   <ItemGroup>
     <Compile Include="api\controllers\authenticationController.js" />
     <Compile Include="api\controllers\index.js" />
+    <Compile Include="api\controllers\userController.js" />
+    <Compile Include="api\routes\index.js" />
+    <Compile Include="config\index.js" />
     <Compile Include="data\database.js" />
     <Compile Include="data\index.js" />
+    <Compile Include="gulpfile.js" />
     <Compile Include="models\user.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="typings\globals\body-parser\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\gulp-nodemon\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\gulp\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\mongodb\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\mongoose\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
@@ -49,11 +56,16 @@
   <ItemGroup>
     <Folder Include="api\" />
     <Folder Include="api\controllers\" />
+    <Folder Include="api\routes\" />
     <Folder Include="data\" />
     <Folder Include="models\" />
+    <Folder Include="config\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\body-parser\" />
     <Folder Include="typings\globals\express\" />
+    <Folder Include="typings\globals\gulp-nodemon\" />
+    <Folder Include="typings\globals\gulp\" />
     <Folder Include="typings\globals\mongodb\" />
     <Folder Include="typings\globals\mongoose\" />
     <Folder Include="typings\globals\node\" />

@@ -1,8 +1,13 @@
 ﻿(function (database) {
-    "use strict";
-
     var mongoose = require('mongoose');
-    mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/favLister'); // connect to our database
 
+    database.init = function (config) {
+        mongoose.connect(config.database); // connect to our database
+    };
+
+    database.getDb = function () {
+
+    };
+   
 
 })(module.exports);

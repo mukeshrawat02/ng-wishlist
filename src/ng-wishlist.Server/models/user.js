@@ -7,6 +7,7 @@
         email: String,
         mobile: INT
     });
-    mongoose.model('User', UserSchema);
+
+    return mongoose.model('User', UserSchema);
 
 })(module.exports);
