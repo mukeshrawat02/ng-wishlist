@@ -8,7 +8,14 @@
                  .post(userController.register);
 
         apiRouter.route('/login')
-                 .post(authenticationController.login);
+                  .post(authenticationController.login);
+
+        apiRouter.route('/user')
+                 .get(userController.getAllUser);
+
+        apiRouter.route('/user:userId')
+                 .get(userController.getUserById)
+                 .post(userController.updateUser);
     };
 
 })(module.exports);
