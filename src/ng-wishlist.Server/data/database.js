@@ -2,12 +2,14 @@
     var mongoose = require('mongoose');
 
     database.init = function (config) {
-        mongoose.connect(config.database); // connect to our database
-    };
+        // connect to our database
+        mongoose.connect(config.database, function (err) {
+            if (err) {
+                throw err;
+            }
 
-    database.getDb = function () {
-
+            console.log('Successfully connected to MongoDB');
+        });
     };
-   
 
 })(module.exports);

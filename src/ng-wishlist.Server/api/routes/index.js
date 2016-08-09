@@ -1,12 +1,9 @@
-﻿(function (routes) {
+﻿(function (apiRoutes) {
 
-    //var authenticationController = require("./authenticationController");
-    //var userController = require("./userController");
-    //var data = require("../../data");
+    var userRoute = require("./userRoute");
 
-    //routes.init = function(router) {
-    //    authenticationController.init(router, data);
-    //    userController.init(router, data);
-    //};
+    apiRoutes.init = function (routes) {
+        userRoute.init(routes);
+    };
 
 })(module.exports);

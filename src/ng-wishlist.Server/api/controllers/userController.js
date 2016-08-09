@@ -1,20 +1,22 @@
 ﻿(function (userController) {
 
-    userController.init = function (router, data) {
-        router.route('/register')
-            .post(function (req, res) {
-                console.log('processing');
-                res.send('processing the login form!');
-            });
+    var User = require('./models/user');
 
-        router.route('/profile')
-            .get(function (req, res) {
+    var register = function (req, res) {
+        var user = new User();
+        user.username = req.body.name;
 
-            })
-            .post(function (req, res) {
-                console.log('processing');
-                res.send('processing the login form!');
-            });
+        // Save the user and check for errors
+        user.save(function (err) {
+            if (err) {
+                res.send(err);
+            }
+            res.json({ message: 'User has been added!', data: user });
+        });
+    };
+
+    return {
+        register: register
     };
 
 })(module.exports);
