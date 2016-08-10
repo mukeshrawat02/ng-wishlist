@@ -1,16 +1,17 @@
-﻿// Load required packages
-var mongoose = require('mongoose');
+﻿var User = function (mongoose) {
+    // Define our user schema
+    var UserSchema = new mongoose.Schema({
+        name: { type: String, required: true },
+        email: { type: String, required: true, unique: true },
+        mobile: Number,
+        username: { type: String, required: true, unique: true },
+        password: { type: String, required: true, select: false },
+        dob: Date,
+        created_at: { type: Date, default: Date.now() }
+    });
 
-// Define our beer schema
-var UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    mobile: Number,
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: false },
-    dob: Date,
-    created_at: { type: Date, default: Date.now() }
-});
+    // Export the Mongoose model
+    return mongoose.model('User', UserSchema);
+};
 
-// Export the Mongoose model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = User;

@@ -7,15 +7,15 @@
         apiRouter.route('/signup')
                  .post(userController.register);
 
-        apiRouter.route('/login')
-                  .post(authenticationController.login);
+        //apiRouter.route('/login')
+        //          .post(authenticationController.login);
 
-        apiRouter.route('/user')
+        apiRouter.route('/users')
                  .get(userController.getAllUser);
 
-        apiRouter.route('/user:userId')
-                 .get(userController.getUserById)
-                 .post(userController.updateUser);
+        //apiRouter.route('/user:userId')
+        //         .get(userController.getUserById)
+        //         .post(userController.updateUser);
     };
 
 })(module.exports);

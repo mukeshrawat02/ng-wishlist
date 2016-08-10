@@ -38,6 +38,7 @@
     <Compile Include="data\database.js" />
     <Compile Include="data\index.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="models\index.js" />
     <Compile Include="models\user.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
