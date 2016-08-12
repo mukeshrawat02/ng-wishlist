@@ -2,7 +2,7 @@
 var nodemon = require('gulp-nodemon');
 var jshint = require('gulp-jshint');
 
-gulp.task('lint', function () {//gulp.src(['./*.js', './{,*/}*.js', './**/{,*/}*.js'])
+gulp.task('lint', function () {
     return gulp.src(['./*.js', './*/*.js', './*/*/*.js'])
                .pipe(jshint())
                .pipe(jshint.reporter('jshint-stylish'));
@@ -16,7 +16,7 @@ gulp.task('default', function () {
         // the script to run the app
         script: 'server.js',
         ext: 'js',
-        watch: ["server.js", "./**/*s"],
+        watch: ["server.js", "models/", "api/*", 'data/', 'config/'],
         env: {
             PORT: 8000
         },
