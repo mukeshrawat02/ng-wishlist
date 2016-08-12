@@ -13,7 +13,6 @@
 
         // Save the user and check for errors
         user.save(function (err) {
-            console.log("Inside Save!");
             if (err) {
                 res.send(err);
             }

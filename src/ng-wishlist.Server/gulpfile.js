@@ -1,5 +1,13 @@
 ﻿var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
+var jshint = require('gulp-jshint');
+
+gulp.task('lint', function () {
+    return gulp.src(['./*.js', 'models/*.js', 'api/*/*.js', 'data/*.js', 'config/*.js'])
+               .pipe(jshint())
+               .pipe(jshint.reporter('default'));
+});
+
 
 // start our server and listen for changes
 gulp.task('default', function () {
@@ -12,9 +20,10 @@ gulp.task('default', function () {
         env: {
             PORT: 8000
         },
+        tasks:['lint'],
         ignore: ['./node_modules/**']
     })
-   .on('restart', function () {
-        console.log('favLister Server restarted!');
-    });
+        .on('restart', function () {
+            console.log('favLister Server restarted!');
+        });
 });
