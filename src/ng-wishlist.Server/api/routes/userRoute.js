@@ -1,21 +1,22 @@
 ﻿(function (userRoute) {
     
-    //var authenticationController = require("../controllers/authenticationController");
+    var authenticationController = require("../controllers/authenticationController");
     var userController = require("../controllers/userController");
 
     userRoute.init = function (apiRouter) {
         apiRouter.route('/signup')
                  .post(userController.register);
 
-        //apiRouter.route('/login')
-        //          .post(authenticationController.login);
+        apiRouter.route('/login')
+                 .post(authenticationController.login);
 
         apiRouter.route('/users')
-                 .get(userController.getAllUser);
+                 .get(userController.getUsers);
 
-        //apiRouter.route('/user:userId')
-        //         .get(userController.getUserById)
-        //         .post(userController.updateUser);
+        apiRouter.route('/user/:user_id')
+                 .get(userController.getUser)
+                 .put(userController.updateUser)
+                 .delete(userController.deleteUser);
     };
 
 })(module.exports);

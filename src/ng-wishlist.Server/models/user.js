@@ -11,10 +11,11 @@
         mobile: Number,
         username: { type: String, required: true, unique: true },
         password: {
-            type: String, required: true, select: false // do not select in query by default
+            type: String, required: true, select: true // do not select in query by default
         },
         dob: Date,
-        created_at: { type: Date, default: Date.now() }
+        created_at: { type: Date, default: Date.now() },
+        updated_at: Date
     });
 
     UserSchema.pre('save', function (next) {
@@ -25,14 +26,14 @@
 
         // generate a salt
         bcrypt.genSalt(10,
-            function(err, salt) {
+            function (err, salt) {
                 if (err) return next(err);
 
                 // hash password with our new salt
                 bcrypt.hash(user.password,
                     salt,
                     null,
-                    function(err, hash) {
+                    function (err, hash) {
                         if (err) return next(err);
 
                         // override the cleartext password with the hashed one
@@ -43,10 +44,12 @@
     });
 
     // method to compare a given password with the database hash
-    UserSchema.methods.verifyPassword = function (password, cb) {
-        bcrypt.compare(password, this.password, function (err, isMatch) {
-            if (err) return cb(err);
-            cb(null, isMatch);
+    UserSchema.methods.comparePassword = function (password, next) {
+        var user = this;
+        bcrypt.compare(password, user.password, function (err, isMatch) {
+            if (err) return next(err);
+
+            next(null, isMatch);
         });
     };
 

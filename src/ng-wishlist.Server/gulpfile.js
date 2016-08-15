@@ -22,8 +22,7 @@ gulp.task('default', function () {
         },
         tasks:['lint'],
         ignore: ['./node_modules/**']
-    })
-        .on('restart', function () {
+    }).on('restart', function () {
             console.log('favLister Server restarted!');
-        });
+    });
 });

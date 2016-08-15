@@ -41,6 +41,8 @@
     <Compile Include="models\index.js" />
     <Compile Include="models\user.js" />
     <Compile Include="server.js" />
+    <Content Include=".jshintignore" />
+    <Content Include=".jshintrc" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
