@@ -9,7 +9,7 @@
             </span>
         </div>
         <div class="panel-body" ng-controller="RegistrationController as register">
-            <form id="signupform" class="form-horizontal" role="form" onsubmit="save()">
+            <form id="signupform" class="form-horizontal" role="form" onsubmit="register.save()">
                 <div id="signupalert" style="display: none" class="alert alert-danger">
                     <p>Error:</p>
                     <span></span>
@@ -17,37 +17,59 @@
                 <div class="form-group">
                     <label for="firstname" class="col-md-3 control-label">First Name</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                        <input type="text" class="form-control" ng-model="register.user.firstName" name="firstname" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastname" class="col-md-3 control-label">Last Name</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                        <input type="text" class="form-control" ng-model="register.user.lastName" name="lastname" placeholder="Last Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-md-3 control-label">Email</label>
                     <div class="col-md-9">
-                        <input type="email" class="form-control" name="email" placeholder="Email Address">
+                        <input type="email" class="form-control" ng-model="register.user.email" name="email" placeholder="Email Address">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mobile" class="col-md-3 control-label">Mobile</label>
+                    <label for="mobile"
+                           class="col-md-3 control-label">
+                        Mobile
+                    </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="mobile" placeholder="Mobile">
+                        <input type="text"
+                               class="form-control"
+                               ng-model="register.user.mobile"
+                               name="mobile"
+                               placeholder="Mobile">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="username" class="col-md-3 control-label">Username</label>
+                    <label for="username"
+                           class="col-md-3 control-label">
+                        Username
+                    </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <input type="text"
+                               class="form-control"
+                               ng-model="register.user.username"
+                               name="username"
+                               placeholder="Username">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="col-md-3 control-label">Password</label>
+                <div class="form-group"
+                     ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <label for="password"
+                           class="col-md-3 control-label">
+                        Password
+                    </label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                        <input type="password"
+                               class="form-control"
+                               ng-model="register.user.password"
+                               name="password"
+                               placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">

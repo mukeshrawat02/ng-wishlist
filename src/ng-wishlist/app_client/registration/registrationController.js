@@ -10,7 +10,7 @@
 
     function registrationController() {
         var self = this;
-
+        alert(self.username);
         self.save = function() {
 
         };
