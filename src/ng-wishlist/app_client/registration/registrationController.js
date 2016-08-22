@@ -10,9 +10,19 @@
 
     function registrationController() {
         var self = this;
-        alert(self.username);
-        self.save = function() {
-
+        self.user = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            mobile: "",
+            username: "",
+            password: ""
+        };
+        self.save = function (isValid) {
+            alert(isValid);
+            if (isValid) {
+                alert(self.user.username);
+            }
         };
     };
 

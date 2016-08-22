@@ -1,35 +1,87 @@
 ﻿<div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <span class="panel-title text-left">Sign Up</span>
+            <span class="panel-title text-left">
+                Sign Up
+            </span>
             <span class="text-right">
-                <a ui-sref="login" class="hyper-link">
+                <a ui-sref="login"
+                   class="hyper-link">
                     Sign In
                 </a>
             </span>
         </div>
-        <div class="panel-body" ng-controller="RegistrationController as register">
-            <form id="signupform" class="form-horizontal" role="form" onsubmit="register.save()">
-                <div id="signupalert" style="display: none" class="alert alert-danger">
+        <div class="panel-body"
+             ng-controller="RegistrationController as register">
+            <form name="signupform"
+                  class="form-horizontal"
+                  role="form"
+                  ng-submit="register.save(signupform.$valid)"
+                  novalidate>
+                <div id="signupalert"
+                     style="display: none"
+                     class="alert alert-danger">
                     <p>Error:</p>
                     <span></span>
                 </div>
-                <div class="form-group">
-                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : signupform.firstname.$invalid && signupform.firstname.$dirty }">
+                    <label for="firstname"
+                           class="col-md-3 control-label">
+                        First Name
+                    </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" ng-model="register.user.firstName" name="firstname" placeholder="First Name">
+                        <input type="text"
+                               class="form-control"
+                               ng-model="register.user.firstName"
+                               name="firstname"
+                               placeholder="First Name"
+                               required>
+
+                        <p ng-show="signupform.firstname.$invalid && signupform.firstname.$dirty"
+                           class="help-block">
+                            Your first name is required.
+                        </p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : signupform.lastName.$invalid && signupform.lastName.$dirty }">
+                    <label for="lastname"
+                           class="col-md-3 control-label">
+                        Last Name
+                    </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" ng-model="register.user.lastName" name="lastname" placeholder="Last Name">
+                        <input type="text"
+                               class="form-control"
+                               ng-model="register.user.lastName"
+                               name="lastName"
+                               placeholder="Last Name"
+                               required>
+
+                        <p ng-show="signupform.lastName.$invalid && signupform.lastName.$dirty"
+                           class="help-block">
+                            Your last name is required.
+                        </p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="email" class="col-md-3 control-label">Email</label>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : signupform.email.$invalid && signupform.email.$dirty }">
+                    <label for="email"
+                           class="col-md-3 control-label">
+                        Email
+                    </label>
                     <div class="col-md-9">
-                        <input type="email" class="form-control" ng-model="register.user.email" name="email" placeholder="Email Address">
+                        <input type="email"
+                               class="form-control" 
+                               ng-model="register.user.email" 
+                               name="email" 
+                               placeholder="Email Address"
+                               required>
+
+                        <p ng-show="signupform.email.$invalid && signupform.email.$dirty"
+                           class="help-block">
+                            Your email address is required.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -45,7 +97,8 @@
                                placeholder="Mobile">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group"
+                     ng-class="{ 'has-error' : signupform.userName.$invalid && signupform.userName.$dirty }">
                     <label for="username"
                            class="col-md-3 control-label">
                         Username
@@ -54,12 +107,18 @@
                         <input type="text"
                                class="form-control"
                                ng-model="register.user.username"
-                               name="username"
-                               placeholder="Username">
+                               name="userName"
+                               placeholder="Username"
+                               required>
+
+                        <p ng-show="signupform.userName.$invalid && signupform.userName.$dirty"
+                           class="help-block">
+                            Your username is required.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group"
-                     ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                     ng-class="{ 'has-error': signupform.password.$invalid && signupform.password.$dirty }">
                     <label for="password"
                            class="col-md-3 control-label">
                         Password
@@ -69,19 +128,37 @@
                                class="form-control"
                                ng-model="register.user.password"
                                name="password"
-                               placeholder="Password">
+                               placeholder="Password"
+                               required>
+
+                        <p ng-show="signupform.password.$invalid && signupform.password.$dirty"
+                           class="help-block">
+                            Your password is required.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <!-- Button -->
                     <div class="col-md-offset-3 col-md-9">
-                        <button id="btn-signup" type="button" class="btn btn-success"><i class="icon-hand-right"></i> &nbsp; Sign Up</button>
+                        <button id="btn-signup"
+                                type="button"
+                                ng-disabled="signupform.$invalid"
+                                class="btn btn-success">
+                            <i class="icon-hand-right"></i> &nbsp;
+                            Sign Up
+                        </button>
                         <span style="margin-left:8px;">or</span>
                     </div>
                 </div>
-                <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
+                <div style="border-top: 1px solid #999; padding-top:20px"
+                     class="form-group">
                     <div class="col-md-offset-3 col-md-9">
-                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                        <button id="btn-fbsignup"
+                                type="button"
+                                class="btn btn-primary">
+                            <i class="icon-facebook"></i>
+                            Sign Up with Facebook
+                        </button>
                     </div>
                 </div>
             </form>
