@@ -8,27 +8,28 @@ var express = require('express'),       //call express
 
 data.init(config);
 
+// define our app using express
+var app = express();                  
+app.set('jwtTokenSecret', config.secretKey);
+
 // get an instance of the express Router
 var apiRoutes = express.Router();
 routes.init(apiRoutes);
 
-var app = express();                   //define our app using express
-
 // configure app to use bodyParser()
-// this will let us get the data from a POST
+// this will let us get the data from a POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// this tells express to log via morgan
-// and morgan to log in the "combined" pre-defined format
-app.use(morgan('combined'));
+// use morgan to log requests to the console
+app.use(morgan('dev'));
 
 // enable Cross Origin Resource Sharing
 app.use(function (req, res, next) {
     // CORS headers
     res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Authorization");
     next();
 });
 
