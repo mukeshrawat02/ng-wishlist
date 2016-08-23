@@ -5,11 +5,12 @@
     "use strict";
 
     angular.module("common.services")
-           .factory("UserService",
+           .service("userService",
                     userService);
 
     function userService() {
-
+        this.registerUser = function (user) {
+            alert(user.username);
+        };
     };
-
 }());

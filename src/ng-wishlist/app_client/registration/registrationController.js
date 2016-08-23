@@ -6,9 +6,9 @@
 
     angular.module("favListerApp")
            .controller("RegistrationController",
-                        registrationController);
+                       ['userService', registrationController]);
 
-    function registrationController($scope) {
+    function registrationController(userService) {
         var self = this;
         self.user = {
             firstName: "",
@@ -21,7 +21,7 @@
 
         self.save = function (isValid) {
             if (isValid) {
-
+                userService.registerUser(self.user);
             }
         };
     };
