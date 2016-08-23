@@ -8,7 +8,7 @@
            .controller("RegistrationController",
                         registrationController);
 
-    function registrationController() {
+    function registrationController($scope) {
         var self = this;
         self.user = {
             firstName: "",
@@ -18,10 +18,10 @@
             username: "",
             password: ""
         };
+
         self.save = function (isValid) {
-            alert(isValid);
             if (isValid) {
-                alert(self.user.username);
+
             }
         };
     };
