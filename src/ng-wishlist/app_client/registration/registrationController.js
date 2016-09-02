@@ -10,6 +10,7 @@
 
     function registrationController(userService) {
         var self = this;
+        self.message = null;
         self.user = {
             firstName: "",
             lastName: "",
@@ -19,9 +20,19 @@
             password: ""
         };
 
-        self.save = function (isValid) {
-            if (isValid) {
-                userService.registerUser(self.user);
+        self.save = function (isValid)
+        {
+            if (isValid)
+            {
+                userService.registerUser(self.user)
+                           .$promise
+                           .then(function (weatherForecast) {
+                               //success
+                               self.message = 'You have successfully registered!';
+                           }, function (error) {
+                               //error
+                               self.message = 'Unable to register user: ' + error.message;
+                           });
             }
         };
     };

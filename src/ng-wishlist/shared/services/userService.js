@@ -6,11 +6,12 @@
 
     angular.module("common.services")
            .service("userService",
-                    userService);
+                    ['$resource', 'API_ENDPOINT', userService]);
 
-    function userService() {
+    function userService($resource, API_ENDPOINT) {
+
         this.registerUser = function (user) {
-            alert(user.username);
+            return $resource(API_ENDPOINT + '/signup').save(user);
         };
     };
 }());

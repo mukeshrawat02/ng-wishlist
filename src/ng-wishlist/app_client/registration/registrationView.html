@@ -15,7 +15,6 @@
              ng-controller="RegistrationController as register">
             <form name="signupform"
                   class="form-horizontal"
-                  
                   novalidate>
                 <div id="signupalert"
                      style="display: none"
@@ -39,7 +38,7 @@
 
                         <p ng-show="signupform.firstname.$invalid && signupform.firstname.$dirty"
                            class="help-block">
-                            Your first name is required.
+                            First name is required.
                         </p>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
 
                         <p ng-show="signupform.lastName.$invalid && signupform.lastName.$dirty"
                            class="help-block">
-                            Your last name is required.
+                            Last name is required.
                         </p>
                     </div>
                 </div>
@@ -71,15 +70,19 @@
                     </label>
                     <div class="col-md-9">
                         <input type="email"
-                               class="form-control" 
-                               ng-model="register.user.email" 
-                               name="email" 
+                               class="form-control"
+                               ng-model="register.user.email"
+                               name="email"
                                placeholder="Email Address"
                                required>
 
-                        <p ng-show="signupform.email.$invalid && signupform.email.$dirty"
+                        <p ng-show="signupform.email.$error.required && signupform.email.$dirty"
                            class="help-block">
-                            Your email address is required.
+                            Email address is required.
+                        </p>
+                        <p ng-show="signupform.email.$error.email"
+                           class="help-block">
+                            Invalid Email!
                         </p>
                     </div>
                 </div>
@@ -112,7 +115,7 @@
 
                         <p ng-show="signupform.userName.$invalid && signupform.userName.$dirty"
                            class="help-block">
-                            Your username is required.
+                            Username is required.
                         </p>
                     </div>
                 </div>
@@ -132,7 +135,7 @@
 
                         <p ng-show="signupform.password.$invalid && signupform.password.$dirty"
                            class="help-block">
-                            Your password is required.
+                            Password is required.
                         </p>
                     </div>
                 </div>
@@ -148,6 +151,9 @@
                             Sign Up
                         </button>
                         <span style="margin-left:8px;">or</span>
+                    </div>
+                    <div ng-show="register.message != null">
+                        {{register.message}}
                     </div>
                 </div>
                 <div style="border-top: 1px solid #999; padding-top:20px"
