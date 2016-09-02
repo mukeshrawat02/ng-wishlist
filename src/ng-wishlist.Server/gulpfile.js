@@ -1,6 +1,8 @@
-﻿var gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
-var jshint = require('gulp-jshint');
+﻿var gulp = require('gulp'),
+    nodemon = require('gulp-nodemon'),
+    jshint = require('gulp-jshint'),
+    gulpMocha = require('gulp-mocha'),
+    gutil = require('gulp-util');
 
 gulp.task('lint', function () {
     return gulp.src(['./*.js', './*/*.js', './*/*/*.js'])
@@ -8,6 +10,11 @@ gulp.task('lint', function () {
                .pipe(jshint.reporter('jshint-stylish'));
 });
 
+gulp.task('test', function () {
+    return gulp.src('tests/*.js', { read: false })
+        .pipe(gulpMocha({ reporter: 'list' }))
+        .on('error', gutil.log);
+});
 
 // start our server and listen for changes
 gulp.task('default', function () {

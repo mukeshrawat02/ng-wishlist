@@ -31,6 +31,7 @@
 
             // otherwise we can determine why we failed
             var reasons = User.failedLogin;
+
             switch (reason) {
                 case reasons.NOT_FOUND:
                     res.status(401)
