@@ -23,42 +23,22 @@
                     <span></span>
                 </div>
                 <div class="form-group"
-                     ng-class="{ 'has-error' : signupform.firstname.$invalid && signupform.firstname.$dirty }">
-                    <label for="firstname"
+                     ng-class="{ 'has-error' : signupform.name.$invalid && signupform.name.$dirty }">
+                    <label for="name"
                            class="col-md-3 control-label">
-                        First Name
+                        Name
                     </label>
                     <div class="col-md-9">
                         <input type="text"
                                class="form-control"
-                               ng-model="register.user.firstName"
-                               name="firstname"
-                               placeholder="First Name"
+                               ng-model="register.user.name"
+                               name="name"
+                               placeholder="Name"
                                required>
 
-                        <p ng-show="signupform.firstname.$invalid && signupform.firstname.$dirty"
+                        <p ng-show="signupform.name.$invalid && signupform.name.$dirty"
                            class="help-block">
-                            First name is required.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group"
-                     ng-class="{ 'has-error' : signupform.lastName.$invalid && signupform.lastName.$dirty }">
-                    <label for="lastname"
-                           class="col-md-3 control-label">
-                        Last Name
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text"
-                               class="form-control"
-                               ng-model="register.user.lastName"
-                               name="lastName"
-                               placeholder="Last Name"
-                               required>
-
-                        <p ng-show="signupform.lastName.$invalid && signupform.lastName.$dirty"
-                           class="help-block">
-                            Last name is required.
+                            Name is required.
                         </p>
                     </div>
                 </div>

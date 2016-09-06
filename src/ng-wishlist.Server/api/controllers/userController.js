@@ -12,9 +12,12 @@
         user.mobile = req.body.mobile;
         user.dob = req.body.dob;
 
+        console.log(req.body);
+
         // Save the user and check for errors
         user.save(function (err) {
             if (err) {
+                console.log(err);
                 res.status(500).send(err);
             }
             res.json({

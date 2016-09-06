@@ -12,8 +12,7 @@
         var self = this;
         self.message = null;
         self.user = {
-            firstName: "",
-            lastName: "",
+            name: "",
             email: "",
             mobile: "",
             username: "",
@@ -26,7 +25,7 @@
             {
                 userService.registerUser(self.user)
                            .$promise
-                           .then(function (weatherForecast) {
+                           .then(function (response) {
                                //success
                                self.message = 'You have successfully registered!';
                            }, function (error) {
