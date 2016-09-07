@@ -11,6 +11,8 @@
     function registrationController(userService) {
         var self = this;
         self.message = null;
+        self.hasError = false;
+
         self.user = {
             name: "",
             email: "",
@@ -28,10 +30,15 @@
                            .then(function (response) {
                                //success
                                self.message = 'You have successfully registered!';
+                               self.hasError = false;
                            }, function (error) {
                                //error
                                self.message = 'Unable to register user: ' + error.message;
+                               self.hasError = true;
                            });
+                self.signupform.$setPristine();
+                self.signupform.$setUntouched();
+                self.user = {};
             }
         };
     };
