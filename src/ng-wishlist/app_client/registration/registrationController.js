@@ -12,6 +12,7 @@
         var self = this;
         self.message = null;
         self.hasError = false;
+        self.form = {};
 
         self.user = {
             name: "",
@@ -36,9 +37,16 @@
                                self.message = 'Unable to register user: ' + error.message;
                                self.hasError = true;
                            });
-                self.signupform.$setPristine();
-                self.signupform.$setUntouched();
-                self.user = {};
+
+                self.form.signup.$setPristine();
+                self.form.signup.$setUntouched();
+                self.user = {
+                    name: "",
+                    email: "",
+                    mobile: "",
+                    username: "",
+                    password: ""
+                };
             }
         };
     };
