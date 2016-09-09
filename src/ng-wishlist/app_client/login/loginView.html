@@ -10,23 +10,44 @@
         </div>
 
         <div style="padding-top:30px" class="panel-body">
-
-            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-            <form id="loginform" class="form-horizontal" role="form">
-                <div style="margin-bottom: 25px" class="input-group">
+            <form name="form.login"
+                  ng-controller="LoginController as vm"
+                  class="form-horizontal"
+                  novalidate>
+                <div class="input-group"
+                     ng-class="{ 'has-error' : form.login.username.$invalid && form.login.username.$dirty }">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username">
+                    <input type="text"
+                           class="form-control"
+                           ng-model="vm.user.username"
+                           name="username"
+                           placeholder="Username"
+                           required />
                 </div>
-
-                <div style="margin-bottom: 25px" class="input-group">
+                <p ng-show="form.login.username.$invalid && form.login.username.$dirty">
+                    <label class="error"> Username is required.</label>
+                </p>
+                <div style="margin-top: 25px"
+                     class="input-group"
+                     ng-class="{ 'has-error' : form.login.password.$invalid && form.login.password.$dirty }">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                    <input type="password"
+                           class="form-control"
+                           ng-model="vm.user.password"
+                           name="password"
+                           placeholder="Password"
+                           required />
                 </div>
-                <div class="input-group">
+                <p ng-show="form.login.password.$invalid && form.login.password.$dirty">
+                    <label class="error">Password is required.</label>
+                </p>
+                <div style="margin-top: 15px" class="input-group">
                     <div class="checkbox">
                         <label>
-                            <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                            <input id="login-remember"
+                                   type="checkbox"
+                                   name="remember"
+                                   value="1"> Remember me
                         </label>
                     </div>
                 </div>
@@ -34,7 +55,15 @@
                     <!-- Button -->
 
                     <div class="col-sm-12 controls">
-                        <a id="btn-login" href="#" class="btn btn-success">Login  </a>
+                        <button id="btn-login"
+                                type="button"
+                                ng-disabled="form.login.$invalid"
+                                ng-click="vm.save(form.login.$valid)"
+                                class="btn btn-success">
+                            <i class="icon-hand-right"></i> &nbsp;
+                            Login
+                        </button>
+
                         <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
                     </div>
                 </div>

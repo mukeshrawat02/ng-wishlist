@@ -15,13 +15,8 @@
              ng-controller="RegistrationController as register">
             <form name="register.form.signup"
                   class="form-horizontal"
+                  role="form"
                   novalidate>
-                <div id="signupalert"
-                     style="display: none"
-                     class="alert alert-danger">
-                    <p>Error:</p>
-                    <span></span>
-                </div>
                 <div class="form-group"
                      ng-class="{ 'has-error' : register.form.signup.name.$invalid && register.form.signup.name.$dirty }">
                     <label for="name"
