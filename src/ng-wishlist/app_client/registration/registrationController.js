@@ -7,9 +7,9 @@
     angular.module("favListerApp")
            .controller("RegistrationController", registrationController);
 
-    registrationController.$inject = ['userService', 'flashService', '$location', '$timeout'];
+    registrationController.$inject = ['userService', 'flashService', '$location'];
 
-    function registrationController(userService, flashService, $location, $timeout) {
+    function registrationController(userService, flashService, $location) {
         var vm = this;
         vm.form = {};
 
@@ -30,12 +30,8 @@
                         //success
                         flashService.success('Registration successful', true);
                         $location.path('/login');
-
-                        $timeout(function () {
-                            flashService.clear();
-                        }, 3000);
-
-                    }, function (error) {
+                    },
+                    function (error) {
                         //error
                         flashService.error('Unable to register user: ' + error.message);
                     });

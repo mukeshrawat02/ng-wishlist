@@ -1,12 +1,12 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("favListerApp")
+    angular.module("common.services")
            .factory('flashService', flashService);
 
-    flashService.$inject = ['$rootScope'];
+    flashService.$inject = ['$rootScope', '$timeout'];
 
-    function flashService($rootScope) {
+    function flashService($rootScope, $timeout) {
         var service = {};
 
         service.success = success;
@@ -41,6 +41,10 @@
                 type: 'success',
                 keepAfterLocationChange: keepAfterLocationChange
             };
+
+            $timeout(function () {
+                service.clear();
+            }, 3000);
         }
 
         function error(message, keepAfterLocationChange) {
@@ -49,9 +53,13 @@
                 type: 'error',
                 keepAfterLocationChange: keepAfterLocationChange
             };
+
+            $timeout(function () {
+                service.clear();
+            }, 3000);
         }
 
-        function clear(){
+        function clear() {
             delete $rootScope.flash;
         }
     }
