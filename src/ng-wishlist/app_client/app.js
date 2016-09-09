@@ -8,7 +8,8 @@
                             [
                                 "common.services",
                                 "ui.router",
-                                "ui.bootstrap"
+                                "ui.bootstrap",
+                                'ngAnimate'
                             ]);
 
     app.config(["$stateProvider",
@@ -27,19 +28,19 @@
                          .state("login", {
                              url: "/login",
                              templateUrl: "../app_client/login/loginView.html",
-                             controller: "LoginController as self"
+                             controller: "LoginController as vm"
                          })
                          // registration
                          .state("register", {
                              url: "/register",
                              templateUrl: "../app_client/registration/registrationView.html",
-                             controller: "RegistrationController as self"
+                             controller: "RegistrationController as vm"
                          })
                         //forgot Password
                          .state("forgotPassword", {
                              url: "/forgotPassword",
                              templateUrl: "../app_client/login/forgotPassword.html",
-                             controller: "ForgotPasswordController as self"
+                             controller: "ForgotPasswordController as vm"
                          });
                      //$locationProvider.html5Mode(true);
                  }]

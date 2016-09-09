@@ -5,16 +5,15 @@
     "using strict";
 
     angular.module("favListerApp")
-           .controller("RegistrationController",
-                       ['userService', registrationController]);
+           .controller("RegistrationController", registrationController);
 
-    function registrationController(userService) {
-        var self = this;
-        self.message = null;
-        self.hasError = false;
-        self.form = {};
+    registrationController.$inject = ['userService', 'flashService', '$location', '$timeout'];
 
-        self.user = {
+    function registrationController(userService, flashService, $location, $timeout) {
+        var vm = this;
+        vm.form = {};
+
+        vm.user = {
             name: "",
             email: "",
             mobile: "",
@@ -22,31 +21,24 @@
             password: ""
         };
 
-        self.save = function (isValid)
-        {
-            if (isValid)
-            {
-                userService.registerUser(self.user)
-                           .$promise
-                           .then(function (response) {
-                               //success
-                               self.message = 'You have successfully registered!';
-                               self.hasError = false;
-                           }, function (error) {
-                               //error
-                               self.message = 'Unable to register user: ' + error.message;
-                               self.hasError = true;
-                           });
+        vm.save = function (isValid) {
+            if (isValid) {
+                userService
+                    .registerUser(vm.user)
+                    .$promise
+                    .then(function (response) {
+                        //success
+                        flashService.success('Registration successful', true);
+                        $location.path('/login');
 
-                self.form.signup.$setPristine();
-                self.form.signup.$setUntouched();
-                self.user = {
-                    name: "",
-                    email: "",
-                    mobile: "",
-                    username: "",
-                    password: ""
-                };
+                        $timeout(function () {
+                            flashService.clear();
+                        }, 3000);
+
+                    }, function (error) {
+                        //error
+                        flashService.error('Unable to register user: ' + error.message);
+                    });
             }
         };
     };
