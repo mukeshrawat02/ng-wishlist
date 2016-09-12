@@ -11,7 +11,6 @@
 
     function loginController(authenticationService, flashService, $location, $localStorage) {
         var vm = this;
-        //vm.form = {};
 
         vm.user = {
             username: "",
