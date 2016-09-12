@@ -5,12 +5,15 @@
     "use strict";
 
     angular.module("common.services")
-           .factory("authenticationService",
-                    ['$resource', 'API_ENDPOINT', authenticationService]);
+           .service("authenticationService", authenticationService);
 
-    function authenticationService(API_ENDPOINT) {
-        var isAuthenticated = false;
-        var authToken;
+    authenticationService.$inject = ['$resource', 'API_ENDPOINT'];
+
+    function authenticationService($resource, API_ENDPOINT) {
+
+        this.login = function (user) {
+            return $resource(API_ENDPOINT + '/login').save(user);
+        };
     };
 
 }(window.angular));

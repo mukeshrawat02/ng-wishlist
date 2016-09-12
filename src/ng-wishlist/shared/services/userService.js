@@ -5,13 +5,15 @@
     "use strict";
 
     angular.module("common.services")
-           .service("userService",
-                    ['$resource', 'API_ENDPOINT', userService]);
+           .service("userService", userService);
+
+    userService.$inject = ['$resource', 'API_ENDPOINT'];
 
     function userService($resource, API_ENDPOINT) {
 
         this.registerUser = function (user) {
             return $resource(API_ENDPOINT + '/signup').save(user);
         };
+
     };
 }());

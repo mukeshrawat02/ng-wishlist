@@ -36,14 +36,14 @@
                 case reasons.NOT_FOUND:
                     res.status(401)
                         .json({
-                            success: true,
+                            success: false,
                             message: "Authentication failed. User not found!"
                         });
                     break;
                 case reasons.PASSWORD_INCORRECT:
                     res.status(401)
                         .json({
-                            success: true,
+                            success: false,
                             message: "Authentication failed. Incorrect Password!"
                         });
                     break;

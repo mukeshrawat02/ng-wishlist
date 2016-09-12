@@ -23,6 +23,8 @@
 
         vm.save = function (isValid) {
             if (isValid) {
+                vm.dataLoading = true;
+
                 userService
                     .registerUser(vm.user)
                     .$promise
@@ -34,6 +36,7 @@
                     function (error) {
                         //error
                         flashService.error('Unable to register user: ' + error.message);
+                        vm.dataLoading = false;
                     });
             }
         };

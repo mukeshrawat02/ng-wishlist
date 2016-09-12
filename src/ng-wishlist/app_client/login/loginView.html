@@ -57,8 +57,8 @@
                     <div class="col-sm-12 controls">
                         <button id="btn-login"
                                 type="button"
-                                ng-disabled="form.login.$invalid"
-                                ng-click="vm.save(form.login.$valid)"
+                                ng-disabled="form.login.$invalid || dataLoading"
+                                ng-click="vm.login(form.login.$valid)"
                                 class="btn btn-success">
                             <i class="icon-hand-right"></i> &nbsp;
                             Login
