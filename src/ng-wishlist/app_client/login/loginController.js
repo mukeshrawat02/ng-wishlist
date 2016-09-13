@@ -16,7 +16,6 @@
         };
 
         vm.login = function (isValid) {
-            alert(isValid);
             if (isValid) {
                 vm.dataLoading = true;
 
@@ -30,7 +29,7 @@
                    },
                    function (error) {
                        //error
-                       flashService.error('Failed to signin: ' + error.message);
+                       flashService.error('Failed to signin : ' + error.data.message);
                        vm.dataLoading = false;
                    });
             }

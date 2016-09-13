@@ -32,7 +32,7 @@
                     },
                     function (error) {
                         //error
-                        flashService.error('Unable to register user: ' + error.message);
+                        flashService.error('Unable to register user: ' + error.data.message);
                         vm.dataLoading = false;
                     });
             }

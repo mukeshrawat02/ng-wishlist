@@ -37,7 +37,7 @@
     <section id="main">
         <div class="container">
             <div class="mainbox drop-shadow alert alertbox alertbox-show-hide col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
-                 ng-show="flash"
+                 ng-if="flash"
                  ng-class="flash.type === 'success' ? 'alert-success': 'alert-danger'">
                 <p>
                     {{flash.message}}
