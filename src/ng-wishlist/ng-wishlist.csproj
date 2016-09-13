@@ -71,6 +71,8 @@
     <Content Include="app_client\login\forgotPassword.html" />
     <Content Include="app_client\login\loginController.js" />
     <Content Include="app_client\login\loginView.html" />
+    <Content Include="app_client\navbar\navbarController.js" />
+    <Content Include="app_client\navbar\navbarView.html" />
     <Content Include="app_client\registration\registrationController.js" />
     <Content Include="app_client\registration\registrationView.html" />
     <Content Include="assets\images\collect.png" />

@@ -1,7 +1,4 @@
-﻿/**
- * Created by Mukesh on 06/03/2016.
- */
-(function (angular) {
+﻿(function (angular) {
     "using strict";
 
     angular.module("favListerApp")
@@ -11,7 +8,7 @@
 
     function registrationController(userService, flashService, $location) {
         var vm = this;
-        vm.form = {};
+        //vm.form = {};
 
         vm.user = {
             name: "",

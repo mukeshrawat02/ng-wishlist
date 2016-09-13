@@ -1,7 +1,4 @@
-﻿/**
- * Created by Mukesh on 06/03/2016.
- */
-(function (angular) {
+﻿(function (angular) {
     "using strict";
 
     angular.module("favListerApp")
@@ -11,6 +8,7 @@
 
     function loginController(authenticationService, flashService, $location, $localStorage) {
         var vm = this;
+        //vm.form = {};
 
         vm.user = {
             username: "",
@@ -18,6 +16,7 @@
         };
 
         vm.login = function (isValid) {
+            alert(isValid);
             if (isValid) {
                 vm.dataLoading = true;
 
