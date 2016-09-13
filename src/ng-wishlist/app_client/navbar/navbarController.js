@@ -8,6 +8,12 @@
 
     function navbarController(userService, $location) {
         var vm = this;
+        vm.user = {
+            isAuthorized: true,
+            username: "World"
+        };
+
+
     };
 
 }(window.angular));

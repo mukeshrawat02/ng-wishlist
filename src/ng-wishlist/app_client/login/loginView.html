@@ -1,6 +1,7 @@
 ﻿<div id="loginbox" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-primary">
         <div class="panel-heading">
+            <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>&nbsp;
             <span class="panel-title text-left">Sign In</span>
             <span class="text-right">
                 <a ui-sref="forgotPassword" class="hyper-link">
@@ -16,7 +17,7 @@
                   novalidate>
                 <div class="input-group"
                      ng-class="{ 'has-error' : form.login.username.$invalid && form.login.username.$dirty }">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                     <input type="text"
                            class="form-control"
                            ng-model="vm.user.username"
@@ -30,7 +31,7 @@
                 <div style="margin-top: 25px"
                      class="input-group"
                      ng-class="{ 'has-error' : form.login.password.$invalid && form.login.password.$dirty }">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                     <input type="password"
                            class="form-control"
                            ng-model="vm.user.password"
