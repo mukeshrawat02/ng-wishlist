@@ -7,30 +7,50 @@
     angular.module("common.services")
            .service("authenticationService", authenticationService);
 
-    authenticationService.$inject = ['$resource', 'API_ENDPOINT', '$localStorage'];
+    authenticationService.$inject = ['$resource', 'API_ENDPOINT', '$localStorage', '$location'];
 
-    function authenticationService($resource, API_ENDPOINT, $localStorage) {
+    function authenticationService($resource, API_ENDPOINT, $localStorage, $location) {
 
-        var _authentication = {
-            isAuth: false,
-            userName: "",
-            access_token: ""
+        var _user = {
+            isAuthenticated: false,
+            userName: ""
         };
 
-        this.login = function (user) {
+        function login(user) {
             return $resource(API_ENDPOINT + '/login')
-                    .save(user)
-                    .$promise
-                    .then(function (response) {
-                        _authentication.isAuth = true;
-                        _authentication.userName = user.username;
-                        _authentication.access_token = response.token;
-                       
-                        $localStorage.authorizationData = _authentication;
-                    });
+                .save(user)
+                .$promise
+                .then(function (response) {
+                    _user.isAuthenticated = true;
+                    _user.userName = user.username;
+
+                    setToken(response.token);
+                });
         };
 
-        this.authentication = _authentication;
+        function setToken(token) {
+            $localStorage.access_token = token;
+        };
+
+        function getToken() {
+            return $localStorage.access_token;
+        };
+
+        function logout() {
+            _user.isAuthenticated = false;
+            _user.userName = "";
+            delete $localStorage.access_token;
+            $location.path('/home');
+        };
+
+        return {
+            login: login,
+            setToken: setToken,
+            getToken: getToken,
+            logout: logout,
+            user: _user
+        };
     };
+
 
 }(window.angular));

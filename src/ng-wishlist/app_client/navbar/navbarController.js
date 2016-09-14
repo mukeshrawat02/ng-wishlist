@@ -13,8 +13,6 @@
             username: ""
         };
 
-        init();
-
         function init() {
             var auth = authenticationService.authentication;
             vm.user.isAuthorized = auth.isAuth;

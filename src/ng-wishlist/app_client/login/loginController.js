@@ -4,9 +4,9 @@
     angular.module("favListerApp")
            .controller("LoginController", loginController);
 
-    loginController.$inject = ['authenticationService', 'flashService', '$location'];
+    loginController.$inject = ['authenticationService', 'flashService', '$location', '$rootScope'];
 
-    function loginController(authenticationService, flashService, $location) {
+    function loginController(authenticationService, flashService, $location, $rootScope) {
         var vm = this;
         //vm.form = {};
 
@@ -21,9 +21,11 @@
 
                 authenticationService
                    .login(vm.user)
+                   .$promise
                    .then(function (response) {
                        //success
-                       $location.path('/');
+                       $rootScope.$emit('authorized');
+                       $location.path('/dashboard');
                    },
                    function (error) {
                        //error
