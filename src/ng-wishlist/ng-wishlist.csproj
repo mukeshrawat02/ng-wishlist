@@ -67,14 +67,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_client\app.js" />
-    <Content Include="app_client\home\landingView.html" />
+    <Content Include="app_client\dashboard\dashboard.html" />
+    <Content Include="app_client\home\home.html" />
     <Content Include="app_client\login\forgotPassword.html" />
     <Content Include="app_client\login\loginController.js" />
-    <Content Include="app_client\login\loginView.html" />
+    <Content Include="app_client\login\login.html" />
     <Content Include="app_client\navbar\navbarController.js" />
-    <Content Include="app_client\navbar\navbarView.html" />
+    <Content Include="app_client\navbar\navbar.html" />
     <Content Include="app_client\registration\registrationController.js" />
-    <Content Include="app_client\registration\registrationView.html" />
+    <Content Include="app_client\registration\registration.html" />
     <Content Include="assets\images\collect.png" />
     <Content Include="assets\images\organize.png" />
     <Content Include="assets\images\share.png" />

@@ -1,20 +1,20 @@
 ﻿<div id="navBar" ng-controller="NavbarController as vm">
-    <ul class="nav navbar-nav navbar-right" ng-if="!vm.user.isAuthorized">
-        <li>
+    <ul class="nav navbar-nav navbar-right" ng-if="!vm.user.isAuthenticated">
+        <li ng-class="{active: vm.isActive('/register')}">
             <a ui-sref="register">
                 <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;
                 Sign Up
             </a>
         </li>
-        <li>
+        <li ng-class="{active: vm.isActive('/login')}">
             <a ui-sref="login">
                 <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbsp;
                 Login
             </a>
         </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right" ng-if="vm.user.isAuthorized">
-        <li>
+    <ul class="nav navbar-nav navbar-right" ng-if="vm.user.isAuthenticated">
+        <li ng-class="{active: vm.isActive('/login')}">
             <a ui-sref="login">
                 <i class="fa fa-sticky-note-o fa-lg" aria-hidden="true"></i>&nbsp;
                 Create Task

@@ -21,15 +21,16 @@
 
                 authenticationService
                    .login(vm.user)
-                   .$promise
                    .then(function (response) {
                        //success
-                       $rootScope.$emit('authorized');
+                       $rootScope.$broadcast('authorized');
                        $location.path('/dashboard');
                    },
                    function (error) {
                        //error
-                       flashService.error('Failed to signin : ' + error.data.message);
+                       if (error.data !== null) {
+                           flashService.error('Failed to signin : ' + error.data.message);
+                       }
                        vm.dataLoading = false;
                    });
             }

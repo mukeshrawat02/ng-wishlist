@@ -4,20 +4,23 @@
     angular.module("favListerApp")
            .controller("NavbarController", navbarController);
 
-    navbarController.$inject = ['authenticationService', '$location'];
+    navbarController.$inject = ['authenticationService', '$location', '$scope'];
 
-    function navbarController(authenticationService, $location) {
+    function navbarController(authenticationService, $location, $scope) {
         var vm = this;
         vm.user = {
-            isAuthorized: false,
+            isAuthenticated: false,
             username: ""
         };
 
-        function init() {
-            var auth = authenticationService.authentication;
-            vm.user.isAuthorized = auth.isAuth;
-            vm.user.username = auth.username;
+        vm.isActive = function (route) {
+            return route === $location.path();
         };
+
+        $scope.$on('authorized', function () {
+            vm.user.isAuthenticated = authenticationService.user.isAuthenticated;
+            vm.user.username = authenticationService.user.username;
+        });
     };
 
 }(window.angular));

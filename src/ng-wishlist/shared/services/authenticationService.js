@@ -5,7 +5,8 @@
     "use strict";
 
     angular.module("common.services")
-           .service("authenticationService", authenticationService);
+           .service("authenticationService", authenticationService)
+           .factory("authInterceptor", authInterceptorFactory);
 
     authenticationService.$inject = ['$resource', 'API_ENDPOINT', '$localStorage', '$location'];
 
@@ -13,7 +14,7 @@
 
         var _user = {
             isAuthenticated: false,
-            userName: ""
+            username: ""
         };
 
         function login(user) {
@@ -22,7 +23,7 @@
                 .$promise
                 .then(function (response) {
                     _user.isAuthenticated = true;
-                    _user.userName = user.username;
+                    _user.username = user.username;
 
                     setToken(response.token);
                 });
@@ -49,6 +50,40 @@
             getToken: getToken,
             logout: logout,
             user: _user
+        };
+    };
+
+    authInterceptorFactory.$inject = ['$q', '$location', 'authenticationService'];
+
+    function authInterceptorFactory($q, $location, authenticationService) {
+        return {
+            request: function (config) {
+                if (config !== undefined) {
+                    config.headers = config.headers || {};
+                    var token = authenticationService.getToken();
+                    console.log(token);
+                    if (token) {
+                        config.headers['x-access-token'] = token;
+                    }
+                }
+                return config;
+            },
+            response: function (response) {
+                if (response != null &&
+                    response.status == 200 &&
+                    authenticationService.getToken() &&
+                    !authenticationService.user.isAuthenticated)
+                {
+                    authenticationService.user.isAuthenticated = true;
+                }
+                return response || $q.when(response);
+            },
+            responseError: function (response) {
+                if (response.status === 401 || response.status === 403) {
+                    $location.path('/login');
+                }
+                return $q.reject(response);
+            }
         };
     };
 

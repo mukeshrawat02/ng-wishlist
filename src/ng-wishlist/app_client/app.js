@@ -50,36 +50,16 @@
                  }]
     );
 
-    app.config(['$provide', '$httpProvider', function ($provide, $httpProvider) {
-        $provide.factory('authInterceptor',
-                          ['$q', '$location', 'authenticationService',
-                              function ($q, $location, authenticationService) {
-                                  return {
-                                      'request': function (config) {
-                                          config.headers = config.headers || {};
-                                          var token = authenticationService.getToken();
-                                          if (token) {
-                                              config.header['x-access-token'] = token;
-                                          }
-                                          return config;
-                                      },
-                                      'responseError': function (response) {
-                                          if (response.status === 401 || response.status === 403) {
-                                              $location.path('/login');
-                                          }
-                                          return $q.reject(response);
-                                      }
-                                  };
-                              }]);
+    app.config(function ($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
-    }]);
+    });
 
-    app.run(function ($rootScope, $location, $localStorage, authenticationService) {
+    app.run(function ($rootScope, $location, authenticationService) {
         $rootScope.$on("$routeChangeStart",
                     function (event, nextRoute, currentRoute) {
                         //redirect only if both isAuthenticated is false and no token is set
-                        if (!authenticationService.isAuthenticated &&
-                            !$localStorage.access_token) {
+                        if (!authenticationService.user.isAuthenticated &&
+                            !authenticationService.getToken()) {
                             $location.path("/login");
                         }
                     });
