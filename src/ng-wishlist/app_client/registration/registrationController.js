@@ -4,9 +4,9 @@
     angular.module("favListerApp")
            .controller("RegistrationController", registrationController);
 
-    registrationController.$inject = ['userService', 'flashService', '$location'];
+    registrationController.$inject = ['userService', 'notificationService', '$location'];
 
-    function registrationController(userService, flashService, $location) {
+    function registrationController(userService, notificationService, $location) {
         var vm = this;
         //vm.form = {};
 
@@ -27,12 +27,12 @@
                     .$promise
                     .then(function (response) {
                         //success
-                        flashService.success('Registration successful', true);
+                        notificationService.success('Registration successful', true);
                         $location.path('/login');
                     },
                     function (error) {
                         //error
-                        flashService.error('Unable to register user: ' + error.data.message);
+                        notificationService.error('Unable to register user: ' + error.data.message);
                         vm.dataLoading = false;
                     });
             }

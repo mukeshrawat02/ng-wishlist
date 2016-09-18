@@ -7,7 +7,8 @@
                                 "ui.router",
                                 "ui.bootstrap",
                                 'ngAnimate',
-                                'ngStorage'
+                                'ngStorage',
+                                'toastr'
                             ]);
 
     app.config(["$stateProvider",

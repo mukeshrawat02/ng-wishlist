@@ -7,8 +7,13 @@
             if (err) {
                 throw err;
             }
+            console.log('mongodb connected');
 
-            console.log('Successfully connected to MongoDB');
+            var db = mongoose.connection;
+            db.on('error', console.error.bind(console, 'connection error..'));
+            db.once('open', function callback() {
+                console.log('favLister database opened');
+            });
         });
     };
 

@@ -5,6 +5,9 @@
     "use strict";
 
     angular.module("common.services",
-                   ["ngResource"])
+                   [
+                       'ngResource',
+                       'toastr'
+                   ])
            .constant('API_ENDPOINT', 'http://localhost:8000/api');
 }());

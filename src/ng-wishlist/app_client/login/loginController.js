@@ -4,9 +4,9 @@
     angular.module("favListerApp")
            .controller("LoginController", loginController);
 
-    loginController.$inject = ['authenticationService', 'flashService', '$location', '$rootScope'];
+    loginController.$inject = ['authenticationService', 'notificationService', '$location', '$rootScope'];
 
-    function loginController(authenticationService, flashService, $location, $rootScope) {
+    function loginController(authenticationService, notificationService, $location, $rootScope) {
         var vm = this;
         //vm.form = {};
 
@@ -29,7 +29,7 @@
                    function (error) {
                        //error
                        if (error.data !== null) {
-                           flashService.error('Failed to signin : ' + error.data.message);
+                           notificationService.error('Failed to signin : ' + error.data.message);
                        }
                        vm.dataLoading = false;
                    });

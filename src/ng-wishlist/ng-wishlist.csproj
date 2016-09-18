@@ -81,6 +81,7 @@
     <Content Include="assets\images\share.png" />
     <Content Include="shared\services\authenticationService.js" />
     <Content Include="shared\services\flashService.js" />
+    <Content Include="shared\services\notificationService.js" />
     <Content Include="shared\services\userService.js" />
     <Content Include="assets\css\app.css" />
     <Content Include="gulpfile.js" />
