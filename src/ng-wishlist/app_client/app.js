@@ -86,6 +86,19 @@
         $httpProvider.interceptors.push('authInterceptor');
     }]);
 
+    app.config(function (toastrConfig) {
+        angular.extend(toastrConfig, {
+            autoDismiss: true,
+            containerId: 'toast-container',
+            maxOpened: 0,
+            newestOnTop: true,
+            positionClass: 'toast-top-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body'
+        });
+    });
+
     app.run(function ($rootScope, $location, authenticationService) {
         $rootScope.$on("$routeChangeStart",
                     function (event, nextRoute, currentRoute) {
