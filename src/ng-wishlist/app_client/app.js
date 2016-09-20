@@ -7,8 +7,7 @@
                                 "ui.router",
                                 "ui.bootstrap",
                                 'ngAnimate',
-                                'ngStorage',
-                                'toastr'
+                                'ngStorage'
                             ]);
 
     app.config(["$stateProvider",
@@ -60,7 +59,6 @@
                                           if (config !== undefined) {
                                               config.headers = config.headers || {};
                                               var token = $localStorage.access_token;
-                                              console.log(token);
                                               if (token) {
                                                   config.headers['x-access-token'] = token;
                                               }
@@ -79,25 +77,16 @@
                                           if (response.status === 401 || response.status === 403) {
                                               $location.path('/login');
                                           }
+                                          else if (response.status <= 0) {
+                                              console.log('Error connecting to server');
+                                              return;
+                                          }
                                           return $q.reject(response);
                                       }
                                   };
                               }]);
         $httpProvider.interceptors.push('authInterceptor');
     }]);
-
-    app.config(function (toastrConfig) {
-        angular.extend(toastrConfig, {
-            autoDismiss: true,
-            containerId: 'toast-container',
-            maxOpened: 0,
-            newestOnTop: true,
-            positionClass: 'toast-top-right',
-            preventDuplicates: false,
-            preventOpenDuplicates: false,
-            target: 'body'
-        });
-    });
 
     app.run(function ($rootScope, $location, authenticationService) {
         $rootScope.$on("$routeChangeStart",

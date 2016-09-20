@@ -4,10 +4,23 @@
 (function () {
     "use strict";
 
-    angular.module("common.services",
+    var service = angular.module("common.services",
                    [
                        'ngResource',
                        'toastr'
                    ])
-           .constant('API_ENDPOINT', 'http://localhost:8000/api');
+                  .constant('API_ENDPOINT', 'http://localhost:8000/api');
+
+    service.config(function (toastrConfig) {
+        angular.extend(toastrConfig, {
+            autoDismiss: true,
+            containerId: 'toast-container',
+            maxOpened: 0,
+            newestOnTop: true,
+            positionClass: 'toast-top-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body'
+        });
+    });
 }());

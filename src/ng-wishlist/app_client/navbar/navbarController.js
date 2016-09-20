@@ -16,8 +16,8 @@
         onLoad();
 
         function onLoad() {
-            console.log("inside onload");
-            console.log(authenticationService.user.isAuthenticated);
+            //console.log("inside onload");
+            //console.log(authenticationService.user.isAuthenticated);
             vm.user.isAuthenticated = authenticationService.user.isAuthenticated;
             vm.user.username = authenticationService.user.username;
         };
