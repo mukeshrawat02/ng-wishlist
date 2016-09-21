@@ -40,14 +40,11 @@
             }
         });
 
-        apiRouter.get('/me', function (req, res) {
-            var user_id = req.decoded._id;
-            req.params.user_id = user_id;
-            userController.getUser(req, res);
-        });
-
         apiRouter.route('/users')
             .get(userController.getUsers);
+
+        apiRouter.route('/me')
+            .get(userController.getUser);
 
         apiRouter.route('/user')
             .put(userController.updateUser)
