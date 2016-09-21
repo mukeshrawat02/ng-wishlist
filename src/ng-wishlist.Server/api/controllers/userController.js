@@ -41,9 +41,9 @@
         });
     };
 
-    // GET /api/user/:user_id
+    // GET /api/user
     userController.getUser = function (req, res) {
-        User.findById(req.params.user_id, function (err, user) {
+        User.findById(req.decoded._id, function (err, user) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -54,9 +54,9 @@
         });
     };
 
-    // PUT /api/user/:user_id
+    // PUT /api/user
     userController.updateUser = function (req, res) {
-        User.findById(req.params.user_id, function (err, user) {
+        User.findById(req.decoded._id, function (err, user) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -96,9 +96,9 @@
         });
     };
 
-    // DELETE /api/user/:user_id
+    // DELETE /api/user
     userController.deleteUser = function (req, res) {
-        User.findByIdAndRemove(req.params.user_id, function (err) {
+        User.findByIdAndRemove(req.decoded._id, function (err) {
             if (err) {
                 res.status(500).send(err);
             }
