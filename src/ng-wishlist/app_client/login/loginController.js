@@ -28,7 +28,7 @@
                    },
                    function (error) {
                        //error
-                       if (error.data !== null) {
+                       if (error.data) {
                            notificationService.error('Failed to signin : ' + error.data.message);
                        }
                        vm.dataLoading = false;

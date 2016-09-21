@@ -1,7 +1,4 @@
-﻿/**
- * Created by Mukesh on 06/03/2016.
- */
-(function (angular) {
+﻿(function (angular) {
     "use strict";
 
     angular.module("common.services")
@@ -21,9 +18,6 @@
                 .save(user)
                 .$promise
                 .then(function (response) {
-                    _user.isAuthenticated = true;
-                    _user.username = user.username;
-
                     setToken(response.token);
                 });
         };
@@ -36,9 +30,9 @@
             return $localStorage.access_token;
         };
 
-        function getUserStatus() {
+        function getUser() {
             if (getToken()) {
-
+                return $resource(API_ENDPOINT + '/me').get();
             }
         }
 
@@ -51,10 +45,8 @@
 
         return {
             login: login,
-            setToken: setToken,
-            getToken: getToken,
             logout: logout,
-            user: _user
+            currentUser: getUser
         };
     };
 
