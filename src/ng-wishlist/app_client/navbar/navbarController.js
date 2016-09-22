@@ -8,6 +8,7 @@
 
     function navbarController(authenticationService, $location, $scope) {
         var vm = this;
+
         vm.user = {
             isAuthenticated: false,
             username: ""
@@ -24,14 +25,28 @@
                       vm.user.isAuthenticated = true;
                       vm.user.username = response.data.username;
                   });
-            };
-        }
+            }
+            else {
+                vm.user = {
+                    isAuthenticated: false,
+                    username: ""
+                };
+            }
+        };
 
         vm.isActive = function (route) {
             return route === $location.path();
         };
 
+        vm.logout = function () {
+            authenticationService.logout();
+        };
+
         $scope.$on('authorized', function () {
+            loadCurrentUser();
+        });
+
+        $scope.$on('unauthorized', function () {
             loadCurrentUser();
         });
     };

@@ -4,9 +4,9 @@
     angular.module("common.services")
            .service("authenticationService", authenticationService);
 
-    authenticationService.$inject = ['$resource', 'API_ENDPOINT', '$localStorage', '$location'];
+    authenticationService.$inject = ['$resource', 'API_ENDPOINT', '$localStorage', '$location', '$rootScope'];
 
-    function authenticationService($resource, API_ENDPOINT, $localStorage, $location) {
+    function authenticationService($resource, API_ENDPOINT, $localStorage, $location, $rootScope) {
 
         var _user = {
             isAuthenticated: false,
@@ -37,9 +37,8 @@
         }
 
         function logout() {
-            _user.isAuthenticated = false;
-            _user.username = "";
             delete $localStorage.access_token;
+            $rootScope.$broadcast('unauthorized');
             $location.path('/home');
         };
 

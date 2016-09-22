@@ -1,7 +1,4 @@
-﻿/**
- * Created by Mukesh on 06/03/2016.
- */
-(function () {
+﻿(function () {
     "use strict";
 
     var service = angular.module("common.services",

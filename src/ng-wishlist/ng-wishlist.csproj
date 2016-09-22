@@ -76,6 +76,8 @@
     <Content Include="app_client\navbar\navbar.html" />
     <Content Include="app_client\registration\registrationController.js" />
     <Content Include="app_client\registration\registration.html" />
+    <Content Include="app_client\wishlist\addWishlist.html" />
+    <Content Include="app_client\wishlist\wishlistController.js" />
     <Content Include="assets\images\collect.png" />
     <Content Include="assets\images\organize.png" />
     <Content Include="assets\images\share.png" />
@@ -91,10 +93,6 @@
     <Content Include="bower.json" />
     <Content Include="shared\services\common.services.js" />
     <Content Include="package.json" />
-    <Content Include="assets\css\app.scss" />
-    <Content Include="assets\css\_modules\_registration.scss" />
-    <Content Include="assets\css\_modules\_navigationBar.scss" />
-    <Content Include="assets\css\_modules\_common.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -103,6 +101,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="shared\services\wishlistService.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app_client\users\" />
-    <Folder Include="app_client\wishlist\" />
-    <Folder Include="assets\fonts\" />
-    <Folder Include="assets\js\" />
+    <Folder Include="assets\ext-js\" />
     <Folder Include="shared\directives\" />
     <Folder Include="shared\filters\" />
   </ItemGroup>

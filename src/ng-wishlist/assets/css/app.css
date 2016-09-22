@@ -1,7 +1,4 @@
-﻿/**
- * Created by Mukesh on 06/03/2016.
- */
-body {
+﻿body {
     font-size: 14px;
     line-height: 1.8;
     color: #818181;
@@ -12,7 +9,6 @@ body {
 .fa-list-alt {
     color: #ffffff;
 }
-
 
 .logo-container {
     font-family: 'Tillana', cursive;
@@ -30,9 +26,10 @@ body {
     letter-spacing: 2px;
 }
 
-    .navbar li a, .navbar .navbar-brand {
+.navbar li a,
+.navbar .navbar-brand {
         color: #fff !important;
-    }
+}
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
     color: #E23A0B !important;
@@ -41,7 +38,7 @@ body {
 
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: #fff !important;
+    color: #fff;
 }
 
 .jumbotron {
@@ -51,9 +48,9 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
-    .jumbotron p {
+.jumbotron p {
         font-size: 16px;
-    }
+}
 
 /*.container-fluid {
     padding: 50px 50px;
@@ -64,14 +61,14 @@ body {
     background-color: #C5D4FF;
 }
 
-    .thumbnail p {
-        color: #555;
-    }
+.thumbnail p {
+    color: #555;
+}
 
-    .thumbnail h3 {
-        color: #fff;
-        font-weight: bold;
-    }
+.thumbnail h3 {
+    color: #fff;
+    font-weight: bold;
+}
 
 .footer {
     position: fixed;
@@ -155,3 +152,7 @@ l .alertbox {
 .toast-top-right {  
    top: 65px; 
 } 
+
+.submenu{
+     background-color:#E23A0B;
+}
