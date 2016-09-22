@@ -28,6 +28,7 @@
                    },
                    function (error) {
                        //error
+                       console.log(error);
                        if (error.data) {
                            notificationService.error('Failed to signin : ' + error.data.message);
                        }
@@ -35,6 +36,6 @@
                    });
             }
         };
-    };
+    }
 
 }(window.angular));

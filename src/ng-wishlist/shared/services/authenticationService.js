@@ -8,11 +8,6 @@
 
     function authenticationService($resource, API_ENDPOINT, $localStorage, $location, $rootScope) {
 
-        var _user = {
-            isAuthenticated: false,
-            username: ""
-        };
-
         function login(user) {
             return $resource(API_ENDPOINT + '/login')
                 .save(user)

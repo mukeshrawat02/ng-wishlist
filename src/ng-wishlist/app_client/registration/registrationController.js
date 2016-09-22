@@ -32,7 +32,9 @@
                     },
                     function (error) {
                         //error
-                        notificationService.error('Unable to register user: ' + error.data.message);
+                        if (error.data) {
+                            notificationService.error('Unable to register user: ' + error.data.message);
+                        }
                         vm.dataLoading = false;
                     });
             }

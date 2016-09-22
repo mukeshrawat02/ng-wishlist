@@ -110,6 +110,7 @@
   <ItemGroup>
     <Folder Include="app_client\users\" />
     <Folder Include="assets\ext-js\" />
+    <Folder Include="dist\" />
     <Folder Include="shared\directives\" />
     <Folder Include="shared\filters\" />
   </ItemGroup>

@@ -20,5 +20,13 @@
   "authors": [
     "Mukesh Rawat"
   ],
-  "private": true
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/ext-js",
+    "test",
+    "tests"
+  ]
 }
