@@ -1,3 +1,3 @@
-@echo off
 
-start C:\mongo\mongod --dbpath %~dp0 --httpinterface --rest
+
+start C:\mongo\mongod --dbpath C:\data\db --httpinterface --rest

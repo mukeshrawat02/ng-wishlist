@@ -82,6 +82,7 @@
     <Content Include="assets\images\organize.png" />
     <Content Include="assets\images\share.png" />
     <Content Include="Gruntfile.js" />
+    <Content Include="shared\directives\stickyNoteDirective.js" />
     <Content Include="shared\services\authenticationService.js" />
     <Content Include="shared\services\flashService.js" />
     <Content Include="shared\services\notificationService.js" />
@@ -111,7 +112,6 @@
     <Folder Include="app_client\users\" />
     <Folder Include="assets\ext-js\" />
     <Folder Include="dist\" />
-    <Folder Include="shared\directives\" />
     <Folder Include="shared\filters\" />
   </ItemGroup>
   <PropertyGroup>
