@@ -1,0 +1,16 @@
+﻿<div class="panel" ng-class="priorty == 'High' ? 'panel-danger' : priorty == 'Medium' ? 'panel-warning': 'panel-info'">
+    <div class="panel-heading">
+        <h2>{{note.title}}</h2>
+        <h4>{{note.created_at  | date:'medium'}}</h4>
+    </div>
+    <div class="panel-body">
+        <div>
+            <p>
+                <h4>{{note.detail}}</h4>
+            </p>
+            <p>
+                <input type="checkbox" ng-model="note.isMarkCompleted">
+            </p>
+        </div>
+    </div>
+</div>

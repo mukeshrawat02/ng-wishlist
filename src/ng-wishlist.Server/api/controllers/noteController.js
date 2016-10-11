@@ -41,6 +41,20 @@
         });
     };
 
+    // GET /api/note/:id
+    noteController.getNote = function (req, res) {
+        Note.findById({ _id: req.params.id }, function (err, note) {
+            if (err) {
+                res.status(500).send(err);
+            }
+
+            res.json({
+                success: true,
+                data: note
+            });
+        });
+    };
+
     // PUT /api/note/update/:id/
     noteController.updateNote = function (req, res) {
         Note.findById({ _id: req.params.id }, function (err, note) {

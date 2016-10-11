@@ -22,6 +22,14 @@
                   });
             }
         };
+
+        vm.editNote = function (noteId) {
+            console.log(noteId);
+        };
+
+        vm.deleteNote = function (noteId) {
+            console.log(noteId);
+        };
     };
 
 }(window.angular));

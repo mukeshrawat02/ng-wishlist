@@ -11,6 +11,9 @@
 
         apiRouter.route('/note/update/:id')
             .put(noteController.updateNote);
+
+        apiRouter.route('/note/:id')
+            .get(noteController.getNote);
     };
 
 })(module.exports);
