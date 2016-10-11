@@ -10,7 +10,7 @@
         note.isMarkCompleted = false;
         note.isMarkDeleted = false;
         note.created_by = req.decoded._id;
-       
+        note.priority = req.body.priority;
         console.log(req.body);
 
         // Save the note and check for errors

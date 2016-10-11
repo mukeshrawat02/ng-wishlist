@@ -1,1 +1,10 @@
-﻿
+﻿<div id="noteBox" ng-controller="DashboardController as vm">
+    <ul>
+        <li ng-repeat="note in vm.notes">
+            <div class="panel panel-primary">
+                {{note.title}}
+            </div>
+        </li>
+    </ul>
+
+</div>

@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="app_client\app.js" />
     <Content Include="app_client\dashboard\dashboard.html" />
+    <Content Include="app_client\dashboard\dashboardController.js" />
     <Content Include="app_client\home\home.html" />
     <Content Include="app_client\login\forgotPassword.html" />
     <Content Include="app_client\login\loginController.js" />

@@ -4,9 +4,9 @@
     angular.module("favListerApp")
            .controller("NavbarController", navbarController);
 
-    navbarController.$inject = ['authenticationService', '$location', '$scope'];
+    navbarController.$inject = ['authenticationService', '$location', '$scope', '$state'];
 
-    function navbarController(authenticationService, $location, $scope) {
+    function navbarController(authenticationService, $location, $scope, $state) {
         var vm = this;
 
         vm.user = {
@@ -36,6 +36,14 @@
 
         vm.isActive = function (route) {
             return route === $location.path();
+        };
+
+        vm.getLandingUrl = function () {
+            var href = 'home';
+            if (vm.user.isAuthenticated)
+                href = 'dashboard'
+            
+            return $state.href(href, null);
         };
 
         vm.logout = function () {
