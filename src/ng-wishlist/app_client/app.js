@@ -26,7 +26,14 @@
                          // dashboard
                          .state("dashboard", {
                              url: "/dashboard",
-                             templateUrl: "../app_client/dashboard/dashboard.html"
+                             templateUrl: "../app_client/dashboard/dashboard.html",
+                             controller: "DashboardController as vm"
+                         })
+                         // create note
+                         .state("createNote", {
+                             url: "/createNote",
+                             templateUrl: "../app_client/note/note.html",
+                             controller: "NoteController as vm"
                          })
                          // login
                          .state("login", {

@@ -2,11 +2,11 @@
     "using strict";
 
     angular.module("favListerApp")
-           .controller("WishlistController", wishlistController);
+           .controller("NoteController", noteController);
 
-    wishlistController.$inject = ['wishlistService'];
+    noteController.$inject = ['wishlistService'];
 
-    function wishlistController(wishlistService) {
+    function noteController(wishlistService) {
         var vm = this;
         vm.note = {
             title: "",

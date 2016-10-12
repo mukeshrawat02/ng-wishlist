@@ -1,5 +1,7 @@
 ﻿<div id="noteBox" ng-controller="DashboardController as vm">
     <div ng-repeat="item in vm.notes">
-        <ng-favLister-panel note="item" update-note="vm.updateNote(item._id)" delete-note="vm.deleteNote(item._id)" />
+        <ng-favLister-panel note="item" 
+                            update-note="vm.updateNote(item._id)" 
+                            delete-note="vm.deleteNote(item._id)" />
     </div>
 </div>

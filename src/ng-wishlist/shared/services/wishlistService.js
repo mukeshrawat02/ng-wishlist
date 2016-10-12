@@ -28,7 +28,6 @@
             getNotes: getAll,
             getNote: get,
             updateNote: update,
-
         };
     };
 }());
