@@ -23,7 +23,7 @@
             }
         };
 
-        vm.editNote = function (noteId) {
+        vm.updateNote = function (noteId) {
             console.log(noteId);
         };
 

@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("favListerApp")
-           .directive("ngFavListerPanel",
+           .directive("ngFavlisterPanel",
                       notePanel);
 
     function notePanel() {
@@ -10,7 +10,8 @@
             restrict: 'E',
             scope: {
                 note: '=note',
-                panelType: '@type'
+                updateNote: '&',
+                deleteNote: '&'
             },
             templateUrl: '/shared/templates/_notePanel.html'
         }

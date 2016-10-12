@@ -1,19 +1,5 @@
 ﻿<div id="noteBox" ng-controller="DashboardController as vm">
-    <ul>
-        <li ng-repeat="note in vm.notes">
-            <div class="panel">
-                <strong>{{note.title}}</strong>
-                <br />
-                {{note.detail}}
-                <br />
-                <a ng-click="vm.editNote(note._id)">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </a>
-                <a ng-click="vm.deleteNote(note._id)">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </a>
-            </div>
-        </li>
-    </ul>
-
+    <div ng-repeat="item in vm.notes">
+        <ng-favLister-panel note="item" update-note="vm.updateNote(item._id)" delete-note="vm.deleteNote(item._id)" />
+    </div>
 </div>
