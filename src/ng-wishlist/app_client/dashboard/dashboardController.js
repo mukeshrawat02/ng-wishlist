@@ -24,12 +24,25 @@
         };
 
         vm.updateNote = function (noteId) {
-            console.log(noteId);
+            loadNotePanel(noteId);
+        };
+
+        vm.createNote = function () {
+            loadNotePanel(null);
         };
 
         vm.deleteNote = function (noteId) {
             console.log(noteId);
         };
+
+        function loadNotePanel(nodeId) {
+            if (nodeId) {
+
+            }
+            else {
+
+            }
+        }
     };
 
 }(window.angular));

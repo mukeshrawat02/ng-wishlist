@@ -30,7 +30,7 @@
 
     // GET /api/note/all
     noteController.getAllNotes = function (req, res) {
-        Note.find({ 'created_by': req.decoded._id }, function (err, notes) {
+        Note.find({ 'created_by': req.decoded._id }).sort({ created_by: -1 }).exec(function (err, notes) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -39,6 +39,16 @@
                 data: notes
             });
         });
+
+        //Note.find({ 'created_by': req.decoded._id }, function (err, notes) {
+        //    if (err) {
+        //        res.status(500).send(err);
+        //    }
+        //    res.json({
+        //        success: true,
+        //        data: notes
+        //    });
+        //});
     };
 
     // GET /api/note/:id
