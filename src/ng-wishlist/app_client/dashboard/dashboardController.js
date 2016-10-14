@@ -17,7 +17,7 @@
             detail: "",
             priority: ""
         };
-        
+
         loadUserNotes();
 
         function loadUserNotes() {
@@ -53,6 +53,21 @@
 
             }
         }
+
+        var showNoteDiaglog = function (ev) {
+            $mdDialog.show({
+                controller: DashboardController,
+                templateUrl: '/shared/templates/_noteWindow.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: false,
+                fullscreen: false
+            }).then(function (answer) {
+                //Ok
+            }, function () {
+                //Cancel
+            });
+        };
     };
 
 }(window.angular));

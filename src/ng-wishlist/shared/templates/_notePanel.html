@@ -13,6 +13,10 @@
                 <strong>Mark Complete :</strong> <input type="checkbox" ng-model="note.isMarkCompleted">
             </p>
             <p>
+                <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </md-button>
+
                 <a ng-click="updateNote({id: note._id})">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
