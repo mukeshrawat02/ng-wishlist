@@ -8,8 +8,16 @@
 
     function dashboardController(wishlistService) {
         var vm = this;
-        vm.notes = [];
 
+        vm.notes = [];
+        vm.priorities = ["High", "Medium", "Low"];
+
+        vm.note = {
+            title: "",
+            detail: "",
+            priority: ""
+        };
+        
         loadUserNotes();
 
         function loadUserNotes() {
@@ -24,10 +32,12 @@
         };
 
         vm.updateNote = function (noteId) {
+            vm.heading = "Edit Item";
             loadNotePanel(noteId);
         };
 
         vm.createNote = function () {
+            vm.heading = "Create Item";
             loadNotePanel(null);
         };
 

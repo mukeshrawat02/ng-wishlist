@@ -1,4 +1,5 @@
-﻿<div class="panel panel-primary">
+﻿<div class="panel panel-primary" 
+     ng-controller="DashboardController as vm">
     <div class="panel-heading">
         <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>&nbsp;
         <h3>{{vm.heading}}</h3>
@@ -34,7 +35,9 @@
                     Description
                 </label>
                 <div class="col-md-9">
-                    <textarea name="detail" placeholder="Description" />
+                    <textarea name="detail" 
+                              placeholder="Description"  
+                              ng-model="vm.note.detail" />
                 </div>
             </div>
             <div class="form-group">

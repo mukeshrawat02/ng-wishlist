@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="shared\services\wishlistService.js" />
     <Content Include="shared\templates\_notePanel.html" />
+    <Content Include="shared\templates\_noteWindow.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
