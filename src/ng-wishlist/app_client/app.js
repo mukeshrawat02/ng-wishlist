@@ -7,8 +7,9 @@
                                 "ui.router",
                                 "ui.bootstrap",
                                 'ngAnimate',
+                                'ngAria',
                                 'ngStorage',
-                                'ngMaterial'
+                                'ngMaterial',
                             ]);
 
     app.config(["$stateProvider",

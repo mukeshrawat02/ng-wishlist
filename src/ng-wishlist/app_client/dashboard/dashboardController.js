@@ -4,18 +4,17 @@
     angular.module("favListerApp")
            .controller("DashboardController", dashboardController);
 
-    dashboardController.$inject = ['wishlistService'];
+    dashboardController.$inject = ['wishlistService', '$scope', '$mdDialog'];
 
-    function dashboardController(wishlistService) {
+    function dashboardController(wishlistService, $scope, $mdDialog) {
         var vm = this;
 
         vm.notes = [];
         vm.priorities = ["High", "Medium", "Low"];
-
         vm.note = {
-            title: "",
-            detail: "",
-            priority: ""
+            title: "Hi",
+            detail: "Test",
+            priority: "High"
         };
 
         loadUserNotes();
@@ -36,38 +35,56 @@
             loadNotePanel(noteId);
         };
 
-        vm.createNote = function () {
+        vm.createNote = function (ev) {
             vm.heading = "Create Item";
-            loadNotePanel(null);
+            showNoteDiaglog(ev);
         };
 
         vm.deleteNote = function (noteId) {
             console.log(noteId);
         };
 
+        
+
         function loadNotePanel(nodeId) {
             if (nodeId) {
 
             }
             else {
-
+                showNoteDiaglog(ev);
             }
         }
 
         var showNoteDiaglog = function (ev) {
+            var parentEl = angular.element(document.body);
             $mdDialog.show({
-                controller: DashboardController,
+                scope: $scope,
+                preserveScope: true,
+                parent: parentEl,
                 templateUrl: '/shared/templates/_noteWindow.html',
-                parent: angular.element(document.body),
                 targetEvent: ev,
-                clickOutsideToClose: false,
-                fullscreen: false
+                clickOutsideToClose: true,
+                fullscreen: true,
+                controller: DialogController
             }).then(function (answer) {
-                //Ok
+                console.log(answer);
             }, function () {
-                //Cancel
+
             });
+
+            function DialogController($scope, $mdDialog) {
+                
+                $scope.closeDialog = function () {
+                    $mdDialog.cancel();
+                }
+                $scope.saveNote = function (isValid) {
+                    if (isValid) {
+
+                    }
+                };
+            }
         };
+        
     };
 
 }(window.angular));

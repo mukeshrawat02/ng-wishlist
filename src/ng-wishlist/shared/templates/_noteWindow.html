@@ -1,22 +1,30 @@
-﻿<div class="panel panel-primary" 
-     ng-controller="DashboardController as vm">
-    <div class="panel-heading">
-        <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>&nbsp;
-        <h3>{{vm.heading}}</h3>
-    </div>
-    <div class="panel-body">
-        <form name="form.note"
-              class="form-horizontal"
-              role="form"
-              novalidate>
-            <div class="form-group"
-                 ng-class="{ 'has-error' : form.note.title.$invalid && form.note.title.$dirty }"
-                 ng-disabled="vm.isUpdateRequest">
-                <label for="title"
-                       class="col-md-3 control-label">
-                    Title
-                </label>
-                <div class="col-md-9">
+﻿<md-dialog aria-label="Create Note">
+    <form name="form.note"
+          role="form"
+          novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>&nbsp;
+                <h3>{{ vm.heading }}</h3>
+                <span flex></span>
+                <md-button ng-click="closeDialog()"
+                           class="md-icon-button text-right">
+                    <md-icon md-font-icon="fa-times fa-2x"
+                             aria-label="Close dialog"
+                             class="fa"
+                             ng-style="{color: 'Orange', height:'auto'}" />
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <div class="md-dialog-content">
+                <div ng-class="{ 'has-error' : form.note.title.$invalid && form.note.title.$dirty }"
+                     ng-disabled="vm.isUpdateRequest">
+                    <label for="title"
+                           class="control-label">
+                        Title
+                    </label>
+                    <br />
                     <input type="text"
                            class="form-control"
                            ng-model="vm.note.title"
@@ -29,49 +37,46 @@
                         Title is required.
                     </p>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="detail" class="col-md-3 control-label">
-                    Description
-                </label>
-                <div class="col-md-9">
-                    <textarea name="detail" 
-                              placeholder="Description"  
+                <div>
+                    <label for="detail" class="control-label">
+                        Description
+                    </label>
+                    <br />
+                    <textarea name="detail"
+                              placeholder="Description"
                               ng-model="vm.note.detail" />
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="priority" class="col-md-3 control-label">
-                    Priority
-                </label>
-                <div class="col-md-9">
-                    <select name="priority" 
-                            class="dropdown dropdown-menu"
-                            ng-model="vm.note.priority">
-                        <option ng-repeat="p in vm.priorities">{{p}}</option>
-                    </select>
+                <div>
+                    <label for="priority" class="control-label">
+                        Priority
+                    </label>
+                    <br />
+                    <div>
+                        <select name="priority"
+                                class="dropdown dropdown-menu"
+                                ng-model="vm.note.priority">
+                            <option ng-repeat="p in vm.priorities">{{p}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <!-- Button -->
-                <div class="col-md-offset-3 col-md-9">
-                    <button id="btn-note"
-                            type="button"
-                            ng-disabled="form.note.$invalid || dataLoading"
-                            ng-click="vm.save(form.note.$valid)"
-                            class="btn btn-success">
-                        <i class="icon-hand-right"></i> &nbsp;
-                        Save
-                    </button>
-                    &nbsp;
-                    <button id="btn-cancel"
-                            type="button"
-                            ng-click="vm.cancel()"
-                            class="btn btn-inverse">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+        </md-content>
+
+        <md-divider></md-divider>
+
+        <md-actions layout="row">
+            <md-button ng-disabled="form.note.$invalid || dataLoading"
+                       ng-click="vm.saveNote(form.note.$valid)"
+                       aria-label="Save Note"
+                       class="md-raised md-primary">
+                Save
+            </md-button>
+            &nbsp;
+            <md-button ng-click="closeDialog()"
+                       aria-label="Cancel"
+                       class="md-raised md-warn">
+                Cancel
+            </md-button>
+        </md-actions>
+    </form>
+</md-dialog>

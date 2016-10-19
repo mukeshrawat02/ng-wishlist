@@ -156,3 +156,18 @@ l .alertbox {
 .submenu{
      background-color:#E23A0B;
 }
+
+.animate-show {
+  height: 0;
+  background: white;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all 0.5s;
+}
+
+.animate-show:not(.ng-hide) {
+  height: 60px;
+}
