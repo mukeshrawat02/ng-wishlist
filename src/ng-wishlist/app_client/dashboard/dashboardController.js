@@ -12,9 +12,9 @@
         vm.notes = [];
         vm.priorities = ["High", "Medium", "Low"];
         vm.note = {
-            title: "Hi",
-            detail: "Test",
-            priority: "High"
+            title: "",
+            detail: "",
+            priority: ""
         };
 
         loadUserNotes();

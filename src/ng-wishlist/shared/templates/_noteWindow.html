@@ -1,7 +1,8 @@
 ﻿<md-dialog aria-label="Create Note">
     <form name="form.note"
           role="form"
-          novalidate>
+          novalidate
+          ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>&nbsp;
@@ -12,11 +13,11 @@
                     <md-icon md-font-icon="fa-times fa-2x"
                              aria-label="Close dialog"
                              class="fa"
-                             ng-style="{color: 'Orange', height:'auto'}" />
+                             ng-style="{color: 'Orange', height:'auto'}"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
-        <md-content>
+        <md-dialog-content>
             <div class="md-dialog-content">
                 <div ng-class="{ 'has-error' : form.note.title.$invalid && form.note.title.$dirty }"
                      ng-disabled="vm.isUpdateRequest">
@@ -24,47 +25,44 @@
                            class="control-label">
                         Title
                     </label>
-                    <br />
-                    <input type="text"
-                           class="form-control"
-                           ng-model="vm.note.title"
-                           name="title"
-                           placeholder="Title"
-                           required>
+                    <div>
+                        <input type="text"
+                               class="form-control"
+                               ng-model="vm.note.title"
+                               name="title"
+                               placeholder="Title"
+                               required>
 
-                    <p ng-show="form.note.title.$invalid && form.note.title.$dirty"
-                       class="help-block">
-                        Title is required.
-                    </p>
+                        <p ng-show="form.note.title.$invalid && form.note.title.$dirty"
+                           class="help-block">
+                            Title is required.
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <label for="detail" class="control-label">
                         Description
                     </label>
-                    <br />
-                    <textarea name="detail"
-                              placeholder="Description"
-                              ng-model="vm.note.detail" />
+                    <div>
+                        <textarea name="detail"
+                                  placeholder="Description"
+                                  ng-model="vm.note.detail"></textarea>
+                    </div>
                 </div>
                 <div>
                     <label for="priority" class="control-label">
                         Priority
                     </label>
-                    <br />
                     <div>
-                        <select name="priority"
-                                class="dropdown dropdown-menu"
-                                ng-model="vm.note.priority">
-                            <option ng-repeat="p in vm.priorities">{{p}}</option>
-                        </select>
+                        <md-select ng-model="vm.note.priority">
+                            <md-option ng-value="p" ng-repeat="p in vm.priorities">{{p}}</md-option>
+                        </md-select>
                     </div>
                 </div>
             </div>
-        </md-content>
-
+        </md-dialog-content>
         <md-divider></md-divider>
-
-        <md-actions layout="row">
+        <div class="md-actions" layout="row">
             <md-button ng-disabled="form.note.$invalid || dataLoading"
                        ng-click="vm.saveNote(form.note.$valid)"
                        aria-label="Save Note"
@@ -77,6 +75,7 @@
                        class="md-raised md-warn">
                 Cancel
             </md-button>
-        </md-actions>
+        </div>
+
     </form>
 </md-dialog>
