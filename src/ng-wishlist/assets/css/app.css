@@ -171,3 +171,10 @@ l .alertbox {
 .animate-show:not(.ng-hide) {
   height: 60px;
 }
+
+textarea#noteDetail {
+	width: 500px;
+	height: 100px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+}
