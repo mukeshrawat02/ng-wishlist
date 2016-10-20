@@ -8,7 +8,6 @@
 
     function loginController(authenticationService, notificationService, $location, $rootScope) {
         var vm = this;
-        //vm.form = {};
 
         vm.user = {
             username: "",
