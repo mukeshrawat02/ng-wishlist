@@ -9,52 +9,52 @@
     function dashboardController(wishlistService, $scope, $mdDialog) {
         var vm = this;
 
-        vm.notes = [];
+        vm.wishlist = [];
        
         vm.priorities = ["High", "Medium", "Low"];
 
-        clearNoteObject();
-        loadUserNotes();
-
-        function loadUserNotes() {
-            var notes = wishlistService.getNotes();
-            if (notes) {
-                notes
-                  .$promise
-                  .then(function (response) {
-                      vm.notes = response.data;
-                  }, function () {
-                      apiError();
-                  });
-            }
-        };
-
-        vm.updateNote = function (noteId, ev) {
-            vm.heading = "Edit Item";
-            vm.isUpdateRequest = true;
-            loadNotePanel(noteId, ev);
-        };
-
-        vm.createNote = function (ev) {
+        vm.create = function (ev) {
             vm.heading = "Create Item";
             vm.isUpdateRequest = false;
             clearNoteObject();
             loadNotePanel(null, ev);
         };
 
-        vm.deleteNote = function (noteId, ev) {
+        vm.update = function (id, ev) {
+            vm.heading = "Edit Item";
+            vm.isUpdateRequest = true;
+            loadNotePanel(id, ev);
+        };
+
+        vm.delete = function (id, ev) {
             showConfirm(ev).then(function () {
                 console.log("deleted");
 
-                loadUserNotes();
+                loadUserWishlist();
             }, function () {
                 console.log("cancelled");
             });
         };
 
-        function loadNotePanel(noteId, ev) {
-            if (noteId) {
-                var selectedNote = wishlistService.getNote(noteId);
+        clearNoteObject();
+        loadUserWishlist();
+
+        function loadUserWishlist() {
+            var notes = wishlistService.getNotes();
+            if (notes) {
+                notes
+                  .$promise
+                  .then(function (response) {
+                      vm.wishlist = response.data;
+                  }, function () {
+                      apiError();
+                  });
+            }
+        };
+
+        function loadNotePanel(id, ev) {
+            if (id) {
+                var selectedNote = wishlistService.getNote(id);
                 if (selectedNote) {
                     selectedNote
                       .$promise
@@ -97,7 +97,7 @@
                                 updatedNote
                                   .$promise
                                   .then(function () {
-                                      loadUserNotes();
+                                      loadUserWishlist();
                                   }, function () {
                                       apiError();
                                   });
@@ -106,12 +106,13 @@
                         }
                         else
                         {
+                            create
                             var addedNote = wishlistService.addNote(vm.note);
                             if (addedNote) {
                                 addedNote
                                   .$promise
                                   .then(function () {
-                                      loadUserNotes();
+                                      loadUserWishlist();
                                   }, function () {
                                       apiError();
                                   });

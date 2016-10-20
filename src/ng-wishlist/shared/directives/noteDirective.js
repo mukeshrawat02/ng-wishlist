@@ -3,17 +3,17 @@
 
     angular.module("favListerApp")
            .directive("ngFavlisterPanel",
-                      notePanel);
+                      wishlistPanel);
 
-    function notePanel() {
+    function wishlistPanel() {
         return {
             restrict: 'E',
             scope: {
-                note: '=note',
-                updateNote: '&',
-                deleteNote: '&'
+                wishItem: '=',
+                updateItem: '&',
+                deleteItem: '&'
             },
-            templateUrl: '/shared/templates/_notePanel.html'
+            templateUrl: '/shared/templates/_wishlistPanel.html'
         }
     };
 }(window.angular));

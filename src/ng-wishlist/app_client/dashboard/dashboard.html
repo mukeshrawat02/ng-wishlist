@@ -1,10 +1,10 @@
 ﻿<div id="noteBox" ng-controller="DashboardController as vm">
-    <div ng-if="vm.notes.length == 0"
+    <div ng-if="vm.wishlist.length == 0"
          class="text-center pagination-centered top-buffer">
         <h3>Your wishlist is empty</h3>
         <p class="top-buffer">
             Adding your first item is easy, just click this
-            <md-button ng-click="vm.createNote($event)"
+            <md-button ng-click="vm.create($event)"
                        class="md-icon-button">
                 <md-icon md-font-icon="fa-plus-square-o fa-2x"
                          aria-label="Add Note"
@@ -14,7 +14,7 @@
         </p>
     </div>
     <div>
-        <md-button ng-if="vm.notes.length > 0"
+        <md-button ng-if="vm.wishlist.length > 0"
                    ng-click="vm.createNote($event)"
                    class="md-icon-button text-right">
             <md-icon md-font-icon="fa-plus-square-o fa-2x"
@@ -23,10 +23,10 @@
                      ng-style="{color: 'green', height:'auto'}" />
         </md-button>
 
-        <div ng-if="vm.notes.length > 0" ng-repeat="item in vm.notes">
-            <ng-favLister-panel note="item"
-                                update-note="vm.updateNote(item._id)"
-                                delete-note="vm.deleteNote(item._id)" />
+        <div ng-if="vm.wishlist.length > 0" ng-repeat="item in vm.wishlist">
+            <ng-favLister-panel wish-item="item"
+                                update-item="vm.update(item._id)"
+                                delete-item="vm.delete(item._id)" />
         </div>
     </div>
 </div>

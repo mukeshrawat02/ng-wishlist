@@ -52,7 +52,7 @@
                         //forgot Password
                          .state("forgotPassword", {
                              url: "/forgotPassword",
-                             templateUrl: "../app_client/login/forgotPassword.html",
+                             templateUrl: "../app_client/forgotPassword/forgotPassword.html",
                              controller: "ForgotPasswordController as vm"
                          });
                      //$locationProvider.html5Mode(true);
