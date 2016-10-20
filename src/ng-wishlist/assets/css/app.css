@@ -178,3 +178,5 @@ textarea#noteDetail {
 	border: 1px solid #cccccc;
 	padding: 5px;
 }
+
+.top-buffer { margin-top:20px; }

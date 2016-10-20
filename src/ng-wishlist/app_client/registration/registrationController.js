@@ -8,7 +8,6 @@
 
     function registrationController(userService, notificationService, $location) {
         var vm = this;
-        //vm.form = {};
 
         vm.user = {
             name: "",

@@ -19,7 +19,8 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
-                <div ng-class="{ 'has-error' : form.note.title.$invalid && form.note.title.$dirty }"
+                <div class="row"
+                     ng-class="{ 'has-error' : form.note.title.$invalid && form.note.title.$dirty }"
                      ng-disabled="vm.isUpdateRequest">
                     <label for="title"
                            class="control-label">
@@ -39,7 +40,7 @@
                         </p>
                     </div>
                 </div>
-                <div>
+                <div class="row top-buffer">
                     <label for="noteDetail" class="control-label">
                         Description
                     </label>
@@ -50,7 +51,7 @@
                                   ng-model="vm.note.detail"></textarea>
                     </div>
                 </div>
-                <div>
+                <div class="row top-buffer">
                     <label for="priority" class="control-label">
                         Priority
                     </label>
@@ -65,7 +66,7 @@
         <md-divider></md-divider>
         <div class="md-actions" layout="row">
             <md-button ng-disabled="form.note.$invalid || dataLoading"
-                       ng-click="vm.saveNote(form.note.$valid)"
+                       ng-click="saveNote(form.note.$valid)"
                        aria-label="Save Note"
                        class="md-raised md-primary">
                 Save

@@ -13,10 +13,10 @@
                 <strong>Mark Complete :</strong> <input type="checkbox" ng-model="note.isMarkCompleted">
             </p>
             <p>
-                <a ng-click="updateNote({id: note._id})">
+                <a ng-click="updateNote({id: note._id}, $event)">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <a ng-click="deleteNote({id: note._id})">
+                <a ng-click="deleteNote({id: note._id}, $event)">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </a>
             </p>

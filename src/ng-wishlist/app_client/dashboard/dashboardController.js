@@ -11,12 +11,8 @@
 
         vm.notes = [];
         vm.priorities = ["High", "Medium", "Low"];
-        vm.note = {
-            title: "",
-            detail: "",
-            priority: ""
-        };
-
+       
+        clearNoteObject();
         loadUserNotes();
 
         function loadUserNotes() {
@@ -30,29 +26,31 @@
             }
         };
 
-        vm.updateNote = function (noteId) {
+        vm.updateNote = function (noteId, ev) {
             vm.heading = "Edit Item";
-            loadNotePanel(noteId);
+            vm.isUpdateRequest = true;
+            loadNotePanel(noteId, ev);
         };
 
         vm.createNote = function (ev) {
             vm.heading = "Create Item";
-            showNoteDiaglog(ev);
+            vm.isUpdateRequest = false;
+            loadNotePanel(null, ev);
         };
 
-        vm.deleteNote = function (noteId) {
-            console.log(noteId);
+        vm.deleteNote = function (noteId, ev) {
+            showConfirm(ev).then(function () {
+                console.log("deleted")
+            }, function () {
+                console.log("cancelled");
+            });
         };
 
-        
-
-        function loadNotePanel(nodeId) {
+        function loadNotePanel(nodeId, ev) {
             if (nodeId) {
 
             }
-            else {
-                showNoteDiaglog(ev);
-            }
+            showNoteDiaglog(ev);
         }
 
         var showNoteDiaglog = function (ev) {
@@ -66,25 +64,41 @@
                 clickOutsideToClose: true,
                 fullscreen: true,
                 controller: DialogController
-            }).then(function (answer) {
-                console.log(answer);
-            }, function () {
-
             });
 
             function DialogController($scope, $mdDialog) {
-                
                 $scope.closeDialog = function () {
                     $mdDialog.cancel();
                 }
                 $scope.saveNote = function (isValid) {
                     if (isValid) {
-
+                        vm.notes.push(vm.note);
+                        clearNoteObject();
+                        $mdDialog.hide();
                     }
                 };
             }
         };
-        
+
+        var showConfirm = function(ev) {
+            var confirm = $mdDialog.confirm()
+                  .title('Delete Note')
+                  .textContent('Are you sure you want to delete this note?')
+                  .ariaLabel('Delete Note')
+                  .targetEvent(ev)
+                  .ok('Yes')
+                  .cancel('No');
+
+            return $mdDialog.show(confirm);
+        };
+
+        function clearNoteObject() {
+            vm.note = {
+                title: "",
+                detail: "",
+                priority: ""
+            };
+        };
     };
 
 }(window.angular));
