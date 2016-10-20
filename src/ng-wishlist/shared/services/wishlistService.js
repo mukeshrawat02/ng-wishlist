@@ -13,7 +13,7 @@
         }
 
         function get(_id) {
-            return $resource(API_ENDPOINT + '/note/get/:id', { id: _id });
+            return $resource(API_ENDPOINT + '/note/:id', { id: _id }).get();
         }
 
         function update(_id) {

@@ -39,16 +39,6 @@
                 data: notes
             });
         });
-
-        //Note.find({ 'created_by': req.decoded._id }, function (err, notes) {
-        //    if (err) {
-        //        res.status(500).send(err);
-        //    }
-        //    res.json({
-        //        success: true,
-        //        data: notes
-        //    });
-        //});
     };
 
     // GET /api/note/:id

@@ -77,8 +77,6 @@
     <Content Include="app_client\navbar\navbar.html" />
     <Content Include="app_client\registration\registrationController.js" />
     <Content Include="app_client\registration\registration.html" />
-    <Content Include="app_client\note\note.html" />
-    <Content Include="app_client\note\noteController.js" />
     <Content Include="assets\images\collect.png" />
     <Content Include="assets\images\organize.png" />
     <Content Include="assets\images\share.png" />
