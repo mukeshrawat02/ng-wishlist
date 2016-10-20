@@ -10,6 +10,7 @@
         var vm = this;
 
         vm.notes = [];
+       
         vm.priorities = ["High", "Medium", "Low"];
 
         clearNoteObject();
@@ -88,8 +89,35 @@
                 }
                 $scope.saveNote = function (isValid) {
                     if (isValid) {
-                        vm.notes.push(vm.note);
-                        loadUserNotes();
+                        if (vm.note._id)
+                        {
+                            //update
+                            var updatedNote = wishlistService.updateNote(vm.note._id, vm.note);
+                            if (updatedNote) {
+                                updatedNote
+                                  .$promise
+                                  .then(function () {
+                                      loadUserNotes();
+                                  }, function () {
+                                      apiError();
+                                  });
+                            }
+                            console.log("Update Call");
+                        }
+                        else
+                        {
+                            var addedNote = wishlistService.addNote(vm.note);
+                            if (addedNote) {
+                                addedNote
+                                  .$promise
+                                  .then(function () {
+                                      loadUserNotes();
+                                  }, function () {
+                                      apiError();
+                                  });
+                            }
+                            console.log("Create Call");
+                        }
                         $mdDialog.hide();
                     }
                 };

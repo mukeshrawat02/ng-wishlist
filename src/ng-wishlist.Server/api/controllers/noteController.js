@@ -2,7 +2,7 @@
 
     var Note = require('../../models').Note;
 
-    // GET /api/note/add
+    // POST /api/notes
     noteController.addNote = function (req, res) {
         var note = new Note();
         note.title = req.body.title;
@@ -16,7 +16,6 @@
         // Save the note and check for errors
         note.save(function (err) {
             if (err) {
-                console.log(err);
                 res.status(500).send(err);
             }
 
@@ -28,7 +27,7 @@
         });
     };
 
-    // GET /api/note/all
+    // GET /api/notes
     noteController.getAllNotes = function (req, res) {
         Note.find({ 'created_by': req.decoded._id }).sort({ created_by: -1 }).exec(function (err, notes) {
             if (err) {
@@ -55,20 +54,30 @@
         });
     };
 
-    // PUT /api/note/update/:id/
+    // PUT /api/note/:id/
     noteController.updateNote = function (req, res) {
         Note.findById({ _id: req.params.id }, function (err, note) {
             if (err) {
                 res.status(500).send(err);
             }
+            //console.log(req.body);
             // Update only data that exists in request
             if (req.body.title) {
                 note.title = req.body.title;
             }
+            if (req.body.detail) {
+                note.detail = req.body.detail;
+            }
+            if (req.body.priority) {
+                note.priority = req.body.priority;
+            }
+            if (req.body.isMarkCompleted) {
+                note.isMarkCompleted = req.body.isMarkCompleted;
+            }
 
-            user.updated_at = Date.now();
+            note.updated_at = Date.now();
 
-            user.save(function (err) {
+            note.save(function (err) {
                 if (err) {
                     res.status(500).send(err);
                 }

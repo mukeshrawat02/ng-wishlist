@@ -2,17 +2,12 @@
     var noteController = require("../controllers/noteController");
 
     noteRoute.init = function (apiRouter) {
-
-        apiRouter.route('/note/add')
-            .post(noteController.addNote);
-
-        apiRouter.route('/note/all')
+        apiRouter.route('/notes')
+            .post(noteController.addNote)
             .get(noteController.getAllNotes);
 
-        apiRouter.route('/note/update/:id')
-            .put(noteController.updateNote);
-
-        apiRouter.route('/note/:id')
+        apiRouter.route('/notes/:id')
+            .put(noteController.updateNote)
             .get(noteController.getNote);
     };
 

@@ -7,27 +7,33 @@
     wishlistService.$inject = ['$resource', 'API_ENDPOINT'];
 
     function wishlistService($resource, API_ENDPOINT) {
+        var NoteService = $resource(API_ENDPOINT + '/notes/:id', { id: "@id" }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 
         function getAll() {
-            return $resource(API_ENDPOINT + '/note/all').get();
+            return NoteService.get();
         }
 
         function get(_id) {
-            return $resource(API_ENDPOINT + '/note/:id', { id: _id }).get();
+            return NoteService.get({ id: _id });
         }
 
-        function update(_id) {
-            return $resource(API_ENDPOINT + '/note/update/:id', { id: _id }, {
-                update: {
-                    method: 'PUT'
-                }
-            });
+        function create(note) {
+            return NoteService.save(note);
+        }
+
+        function update(_id, note) {
+            return NoteService.update({ id: _id }, note);
         }
 
         return {
             getNotes: getAll,
             getNote: get,
             updateNote: update,
+            addNote: create
         };
     };
 }());
