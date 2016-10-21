@@ -3,7 +3,7 @@
     line-height: 1.8;
     color: #818181;
     background-color: #ffffff;
-    margin:3em;
+    margin: 3em;
     font-family: Montserrat, sans-serif;
 }
 
@@ -27,10 +27,10 @@
     letter-spacing: 2px;
 }
 
-.navbar li a,
-.navbar .navbar-brand {
+    .navbar li a,
+    .navbar .navbar-brand {
         color: #fff !important;
-}
+    }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
     color: #E23A0B !important;
@@ -49,9 +49,9 @@
     font-family: Montserrat, sans-serif;
 }
 
-.jumbotron p {
+    .jumbotron p {
         font-size: 16px;
-}
+    }
 
 /*.container-fluid {
     padding: 50px 50px;
@@ -62,14 +62,14 @@
     background-color: #C5D4FF;
 }
 
-.thumbnail p {
-    color: #555;
-}
+    .thumbnail p {
+        color: #555;
+    }
 
-.thumbnail h3 {
-    color: #fff;
-    font-weight: bold;
-}
+    .thumbnail h3 {
+        color: #fff;
+        font-weight: bold;
+    }
 
 .footer {
     position: fixed;
@@ -150,134 +150,193 @@ l .alertbox {
     padding-left: 15px;
 }
 
-.toast-top-right {  
-   top: 65px; 
-} 
+.toast-top-right {
+    top: 65px;
+}
 
-.submenu{
-     background-color:#E23A0B;
+.submenu {
+    background-color: #E23A0B;
 }
 
 .animate-show {
-  height: 0;
-  background: white;
-  overflow: hidden;
-  transition: all 0.5s;
+    height: 0;
+    background: white;
+    overflow: hidden;
+    transition: all 0.5s;
 }
 
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
-  transition: all 0.5s;
-}
+    .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+        transition: all 0.5s;
+    }
 
-.animate-show:not(.ng-hide) {
-  height: 60px;
-}
+    .animate-show:not(.ng-hide) {
+        height: 60px;
+    }
 
 textarea#noteDetail {
-	width: 500px;
-	height: 100px;
-	border: 1px solid #cccccc;
-	padding: 5px;
+    width: 500px;
+    height: 100px;
+    border: 1px solid #cccccc;
+    padding: 5px;
 }
 
-.top-buffer { margin-top:20px; }
+.top-buffer {
+    margin-top: 20px;
+}
 
 /*StickyNote Style*/
-div#wishlistPanel h3, h4{
-  font-family:'Gloria Hallelujah', cursive; 
+div#wishlistPanel h3, h4 {
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 div#wishlistPanel p {
-  font-size:100%;
-  font-weight:normal;
+    font-size: 100%;
+    font-weight: normal;
 }
 
-div#wishlistPanel p.noteDetail{
-   font-size:80%;
+    div#wishlistPanel p.noteDetail {
+        font-size: 80%;
+    }
+
+ul#wishlist, li {
+    list-style: none;
 }
 
-ul#wishlist, li{
-  list-style:none;
+div#wishlistPanel ul {
+    overflow: hidden;
+    padding: 3em;
 }
 
-div#wishlistPanel ul{
-  overflow:hidden;
-  padding:3em;
-}
-
-ul li section{
-  text-decoration:none;
-  color:#000;
-  background:#ffc;
-  display:block;
-  height:auto;
-  width:300px;
-  padding:1em;
+ul li section {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    display: block;
+    height: auto;
+    width: 300px;
+    padding: 1em;
     /* Firefox */
-  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
-  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  -moz-transition:-moz-transform .15s linear;
-  -o-transition:-o-transform .15s linear;
-  -webkit-transition:-webkit-transform .15s linear;
-  
-  -webkit-transform:rotate(-6deg);
-  -o-transform:rotate(-6deg);
-  -moz-transform:rotate(-6deg);
+    -moz-box-shadow: 5px 5px 7px rgba(33,33,33,1);
+    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+    -webkit-transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
 }
 
-ul#wishlist li{
-  margin:1em;
-  float:left;
+ul#wishlist li {
+    margin: 1em;
+    float: left;
 }
 
-ul li:nth-child(even) section{
-  -o-transform:rotate(4deg);
-  -webkit-transform:rotate(4deg);
-  -moz-transform:rotate(4deg);
-  position:relative;
-  top:5px;
+ul li:nth-child(even) section {
+    -o-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    -moz-transform: rotate(4deg);
+    position: relative;
+    top: 5px;
 }
 
-ul li:nth-child(3n) section{
-  -o-transform:rotate(-3deg);
-  -webkit-transform:rotate(-3deg);
-  -moz-transform:rotate(-3deg);
-  position:relative;
-  top:-5px;
+ul li:nth-child(3n) section {
+    -o-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    position: relative;
+    top: -5px;
 }
 
-ul li:nth-child(5n) section{
-  -o-transform:rotate(5deg);
-  -webkit-transform:rotate(5deg);
-  -moz-transform:rotate(5deg);
-  position:relative;
-  top:-10px;
+ul li:nth-child(5n) section {
+    -o-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    position: relative;
+    top: -10px;
 }
 
-ul li section:hover,ul li section:focus{
-  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
-  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
-  box-shadow:10px 10px 7px rgba(0,0,0,.7);
-  -webkit-transform: scale(1.25);
-  -moz-transform: scale(1.25);
-  -o-transform: scale(1.25);
-  position:relative;
-  z-index:5;
+ul li section:hover, ul li section:focus {
+    -moz-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    position: relative;
+    z-index: 5;
 }
 
-.highPriorityColor{
-  background-color:#ED6B6B;
+.highPriorityColor {
+    background-color: #ED6B6B;
 }
 
-.mediumPriorityColor{
-  background-color:#F2E28A;
+.mediumPriorityColor {
+    background-color: #F2E28A;
 }
 
-.lowPriorityColor{
-  background-color:#8FCD91;
+.lowPriorityColor {
+    background-color: #8FCD91;
 }
 
-div#body{
-  margin:1px;
+div#body {
+    margin: 1px;
+}
+
+/*Checkbox and Radiobutton CSS*/
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.checkbox {
+    width: 28px;
+    height: 28px;
+    top: 8px;
+    margin: 0px 4px;
+    background: #ddd;
+    border-radius: 100%;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+    .checkbox label {
+        display: inline;
+        width: 15px;
+        height: 15px;
+        border-radius: 80px;
+        transition: all .5s ease;
+        cursor: pointer;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        z-index: 1;
+        background: #333;
+        box-shadow: inset 0px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .checkbox input[type=checkbox]:checked + label {
+        background: #26ca28;
+    }
+
+.inline {
+    display: inline;
+}
+
+.pull-right-noteButton {
+    float: right !important;
+    bottom: 0;
+    text-align: right;
+    position: fixed;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-right: 28px;
+}
+
+.pull-right-noteButton a{
+    color:white;
+}
+
+.font-size-18 {
+    font-size: 36px;
 }

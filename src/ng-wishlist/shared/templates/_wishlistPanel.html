@@ -10,18 +10,21 @@
             <br />
             <strong>Priority:</strong> <em> {{wishItem.priority}}</em>
         </div>
-        <p>
-            <strong>Mark Complete:</strong>&nbsp;<input type="checkbox" 
-                                                        class="checkbox checkbox-success"
-                                                        ng-model="wishItem.isMarkCompleted">
+        <p class="inline">
+            <strong>Mark Complete:</strong>
+            <span class="checkbox">
+                <input type="checkbox" id="checkboxInput_{{wishItem._id}}" name="" ng-model="wishItem.isMarkCompleted" />
+                <label for="checkboxInput_{{wishItem._id}}"></label>
+            </span>
         </p>
-        <p>
+        <div class="pull-right-noteButton">
             <a ng-click="updateItem({id: wishItem._id}, $event)">
                 <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
             </a>
+            <span style="width:5px;">&nbsp;</span>
             <a ng-click="deleteItem({id: wishItem._id}, $event)">
                 <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
             </a>
-        </p>
+        </div>
     </div>
 </section>
