@@ -1,4 +1,5 @@
-﻿<div id="noteBox" ng-controller="DashboardController as vm">
+﻿<div id="noteBox" ng-controller="DashboardController as vm" class="top-buffer">
+    <!--If you have no wishlist-->
     <div ng-if="vm.wishlist.length == 0"
          class="text-center pagination-centered top-buffer">
         <h3>Your wishlist is empty</h3>
@@ -13,20 +14,26 @@
             </md-button>button and fill your item on the screen.
         </p>
     </div>
+
+    <!--If you have wishlist data-->
     <div>
         <md-button ng-if="vm.wishlist.length > 0"
-                   ng-click="vm.createNote($event)"
+                   ng-click="vm.create($event)"
                    class="md-icon-button text-right">
             <md-icon md-font-icon="fa-plus-square-o fa-2x"
                      aria-label="Add Note"
                      class="fa"
                      ng-style="{color: 'green', height:'auto'}" />
         </md-button>
-
-        <div ng-if="vm.wishlist.length > 0" ng-repeat="item in vm.wishlist">
-            <ng-favLister-panel wish-item="item"
-                                update-item="vm.update(item._id)"
-                                delete-item="vm.delete(item._id)" />
+        <div id="wishlistPanel">
+            <ul id=wishlist
+                ng-if="vm.wishlist.length > 0">
+                <li ng-repeat="item in vm.wishlist">
+                    <ng-favLister-panel wish-item="item"
+                                        update-item="vm.update(item._id)"
+                                        delete-item="vm.delete(item._id)" />
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -82,7 +82,7 @@
     <Content Include="assets\images\organize.png" />
     <Content Include="assets\images\share.png" />
     <Content Include="Gruntfile.js" />
-    <Content Include="shared\directives\noteDirective.js" />
+    <Content Include="shared\directives\wishlistDirective.js" />
     <Content Include="shared\services\authenticationService.js" />
     <Content Include="shared\services\flashService.js" />
     <Content Include="shared\services\notificationService.js" />

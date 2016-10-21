@@ -1,25 +1,27 @@
-﻿<div class="panel" ng-class="wishItem.priority == 'High' ? 'panel-danger' : wishItem.priority == 'Medium' ? 'panel-warning': 'panel-info'">
-    <div class="panel-heading">
+﻿<section id="wishlistSection" ng-class="wishItem.priority == 'High' ? 'highPriorityColor' : wishItem.priority == 'Medium' ? 'mediumPriorityColor': 'lowPriorityColor'">
+    <div id="header">
         <h3>{{wishItem.title}}</h3>
         <h4>{{wishItem.created_at  | date:'medium'}}</h4>
     </div>
-    <div class="panel-body">
+    <div id="body">
         <div>
-            <p>
-                <h4>{{wishItem.detail}}</h4>
-                <strong>Priority :</strong> <em>{{wishItem.priority}}</em>
-            </p>
-            <p>
-                <strong>Mark Complete :</strong> <input type="checkbox" ng-model="wishItem.isMarkCompleted">
-            </p>
-            <p>
-                <a ng-click="updateItem({id: wishItem._id}, $event)">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </a>
-                <a ng-click="deleteItem({id: wishItem._id}, $event)">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </a>
-            </p>
+            <a data-toggle="collapse" data-target="#detail_{{wishItem._id}}">Check Detail</a>
+            <p id="detail_{{wishItem._id}}" class="noteDetail collapse"> {{wishItem.detail}} </p>
+            <br />
+            <strong>Priority:</strong> <em> {{wishItem.priority}}</em>
         </div>
+        <p>
+            <strong>Mark Complete:</strong>&nbsp;<input type="checkbox" 
+                                                        class="checkbox checkbox-success"
+                                                        ng-model="wishItem.isMarkCompleted">
+        </p>
+        <p>
+            <a ng-click="updateItem({id: wishItem._id}, $event)">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+            </a>
+            <a ng-click="deleteItem({id: wishItem._id}, $event)">
+                <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            </a>
+        </p>
     </div>
-</div>
+</section>

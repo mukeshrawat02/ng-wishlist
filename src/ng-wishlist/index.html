@@ -9,17 +9,17 @@
     <link href="assets/ext-js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/ext-js/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/ext-js/angular-material/angular-material.min.css" rel="stylesheet" />
-    <link href='https://fonts.googleapis.com/css?family=Tillana:700' rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Tillana:700' rel='stylesheet' type='text/css' />
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel='stylesheet' type='text/css' />
     <link href="assets/ext-js/angular-toastr/dist/angular-toastr.min.css" rel="stylesheet" />
 
     <link href="assets/css/app.css" rel="stylesheet" />
 
 </head>
 <body ng-app="favListerApp">
-    <header>
+    <header class="container">
         <ng-include src="'app_client/navbar/navbar.html'"></ng-include>
-        <span id="left"></span>
     </header>
     <section id="main">
         <div class="container">
@@ -30,16 +30,14 @@
                     {{flash.message}}
                 </p>
             </div>
-            <div class="mainbox" ui-view></div>
+            <div ui-view></div>
         </div>
     </section>
     <footer class="container text-center footer">
         <p>
             Copyright © favLister 2016. All rights reserved
-            <span id="right"></span>
         </p>
     </footer>
-
 
     <!-- Library Scripts -->
     <script src="assets/ext-js/angular/angular.min.js"></script>
@@ -76,6 +74,6 @@
     <script src="app_client/dashboard/dashboardController.js"></script>
 
     <!--Directives-->
-    <script src="shared/directives/noteDirective.js"></script>
+    <script src="shared/directives/wishlistDirective.js"></script>
 </body>
 </html>
