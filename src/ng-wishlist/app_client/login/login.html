@@ -13,6 +13,7 @@
         <div style="padding-top:30px" class="panel-body">
             <form name="form.login"
                   ng-controller="LoginController as vm"
+                  ng-keyup="$event.keyCode == 13 && vm.signIn(form.login.$valid)"
                   class="form-horizontal"
                   novalidate>
                 <div class="input-group"
@@ -43,14 +44,19 @@
                     <label class="error">Password is required.</label>
                 </p>
                 <div style="margin-top: 15px" class="input-group">
-                    <div class="checkbox">
+                    <!--<div class="checkbox">
                         <label>
                             <input id="login-remember"
                                    type="checkbox"
                                    name="remember"
                                    value="1"> Remember me
                         </label>
-                    </div>
+                    </div>-->
+                    <span class="checkbox-wishlist">
+                        <input type="checkbox" id="checkboxInput-remember" name="" ng-model="wishItem.isMarkCompleted" />
+                        <label for="checkboxInput-remember"></label>
+                    </span>
+                    <span>&nbsp;Remember me</span>
                 </div>
                 <div style="margin-top:10px" class="form-group">
                     <!-- Button -->
@@ -59,7 +65,7 @@
                         <button id="btn-login"
                                 type="button"
                                 ng-disabled="form.login.$invalid || dataLoading"
-                                ng-click="vm.login(form.login.$valid)"
+                                ng-click="vm.signIn(form.login.$valid)"
                                 class="btn btn-success">
                             <i class="icon-hand-right"></i> &nbsp;
                             Login

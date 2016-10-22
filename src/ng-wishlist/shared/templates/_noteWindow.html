@@ -1,5 +1,6 @@
 ﻿<md-dialog aria-label="Create Note">
     <form name="form.note"
+          ng-keyup="$event.keyCode == 13 && saveNote(form.note.$valid)"
           role="form"
           novalidate
           ng-cloak>

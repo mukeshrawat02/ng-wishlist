@@ -12,9 +12,10 @@
                 </a>
             </span>
         </div>
-        <div class="panel-body"
-             ng-controller="RegistrationController as vm">
+        <div class="panel-body">
             <form name="form.signup"
+                  ng-controller="RegistrationController as vm"
+                  ng-keyup="$event.keyCode == 13 && vm.save(form.signup.$valid)"
                   class="form-horizontal"
                   role="form"
                   novalidate>

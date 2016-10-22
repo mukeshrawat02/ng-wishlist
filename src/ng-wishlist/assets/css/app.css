@@ -288,10 +288,10 @@ input[type=checkbox] {
     visibility: hidden;
 }
 
-.checkbox {
+.checkbox-wishlist {
     width: 28px;
     height: 28px;
-    top: 8px;
+    /*top: 8px;*/
     margin: 0px 4px;
     background: #ddd;
     border-radius: 100%;
@@ -300,22 +300,22 @@ input[type=checkbox] {
     box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
 }
 
-    .checkbox label {
+    .checkbox-wishlist label {
         display: inline;
         width: 15px;
         height: 15px;
-        border-radius: 80px;
+        border-radius: 100px;
         transition: all .5s ease;
         cursor: pointer;
         position: absolute;
-        top: 4px;
-        left: 4px;
+        top: 6px;
+        left: 6px;
         z-index: 1;
         background: #333;
         box-shadow: inset 0px 1px 3px rgba(0,0,0,0.5);
     }
 
-    .checkbox input[type=checkbox]:checked + label {
+    .checkbox-wishlist input[type=checkbox]:checked + label {
         background: #26ca28;
     }
 

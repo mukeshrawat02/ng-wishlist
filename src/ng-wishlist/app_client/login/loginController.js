@@ -14,7 +14,7 @@
             password: ""
         };
 
-        vm.login = function (isValid) {
+        vm.signIn = function (isValid) {
             if (isValid) {
                 vm.dataLoading = true;
 
