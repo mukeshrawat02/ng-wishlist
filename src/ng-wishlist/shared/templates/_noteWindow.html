@@ -6,15 +6,15 @@
           ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>&nbsp;
-                <h3>{{ vm.heading }}</h3>
+                <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+                <span class="logo-container">{{ vm.heading }}</span>
                 <span flex></span>
                 <md-button ng-click="closeDialog()"
                            class="md-icon-button text-right">
                     <md-icon md-font-icon="fa-times fa-2x"
                              aria-label="Close dialog"
                              class="fa"
-                             ng-style="{color: 'Orange', height:'auto'}"></md-icon>
+                             ng-style="{color: 'white', height:'auto'}"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
@@ -70,7 +70,7 @@
             <md-button ng-disabled="form.note.$invalid || dataLoading"
                        ng-click="saveNote(form.note.$valid)"
                        aria-label="Save Note"
-                       class="md-raised md-primary">
+                       class="md-raised md-accent">
                 Save
             </md-button>
             &nbsp;

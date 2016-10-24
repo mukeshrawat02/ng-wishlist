@@ -89,6 +89,43 @@
         $httpProvider.interceptors.push('authInterceptor');
     }]);
 
+    app.config(['$mdThemingProvider', function ($mdThemingProvider) {
+        var redTheme = $mdThemingProvider.theme('redTheme', 'default');
+        var redPalette = $mdThemingProvider.extendPalette('grey', {
+            '50': '#ffffff',
+            '100': '#87b065',
+            '200': '#7aa755',
+            '300': '#6e964c',
+            '400': '#618544',
+            '500': '#55743b',
+            '600': '#496332',
+            '700': '#3c522a',
+            '800': '#304121',
+            '900': '#233019',
+            'A100': '#a1c286',
+            'A200': '#afca97',
+            'A400': '#bcd3a8',
+            'A700': '#171f10',
+        });
+        $mdThemingProvider.definePalette('redPalette', redPalette);
+        redTheme.backgroundPalette('redPalette');
+
+        var neonRedMap = $mdThemingProvider.extendPalette('red', {
+            '500': '#E23A0B',
+            'contrastDefaultColor': 'light'
+        });
+        // Register the new color palette map with the name <code>neonRed</code>
+        $mdThemingProvider.definePalette('neonRed', neonRedMap);
+
+        $mdThemingProvider.theme('default')
+         .primaryPalette('neonRed')
+         .warnPalette('red')
+         .accentPalette('teal', {
+             'default': '900',
+         });
+
+    }]);
+
     app.run(function ($rootScope, $location, authenticationService) {
         $rootScope.$on("$routeChangeStart",
                     function (event, nextRoute, currentRoute) {
