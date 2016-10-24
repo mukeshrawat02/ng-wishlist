@@ -16,9 +16,8 @@
     </div>
 
     <!--If you have wishlist data-->
-    <div>
-        <md-button ng-if="vm.wishlist.length > 0"
-                   ng-click="vm.create($event)"
+    <div ng-if="vm.wishlist.length > 0">
+        <md-button ng-click="vm.create($event)"
                    class="md-icon-button text-right font-size-18">
             <md-icon md-font-icon="fa-plus-square-o"
                      aria-label="Add Note"
@@ -26,8 +25,7 @@
                      ng-style="{color: 'green', height:'auto'}" />
         </md-button>
         <div id="wishlistPanel">
-            <ul id=wishlist
-                ng-if="vm.wishlist.length > 0">
+            <ul id="wishlist">
                 <li ng-repeat="item in vm.wishlist">
                     <ng-favLister-panel wish-item="item"
                                         update-item="vm.update(item._id)"
