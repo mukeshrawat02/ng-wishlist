@@ -28,9 +28,16 @@
 
         vm.delete = function (id, ev) {
             showConfirm(ev).then(function () {
-                console.log("deleted");
-
-                loadUserWishlist();
+                var deletedNote = wishlistService.deleteNote(id);
+                if (deletedNote) {
+                    deletedNote
+                      .$promise
+                      .then(function () {
+                          loadUserWishlist();
+                      }, function () {
+                          apiError();
+                      });
+                }
             }, function () {
                 console.log("cancelled");
             });
@@ -102,11 +109,10 @@
                                       apiError();
                                   });
                             }
-                            console.log("Update Call");
                         }
                         else
                         {
-                            create
+                            //create
                             var addedNote = wishlistService.addNote(vm.note);
                             if (addedNote) {
                                 addedNote
@@ -117,7 +123,6 @@
                                       apiError();
                                   });
                             }
-                            console.log("Create Call");
                         }
                         $mdDialog.hide();
                     }

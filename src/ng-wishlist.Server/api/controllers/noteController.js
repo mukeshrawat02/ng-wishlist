@@ -18,12 +18,12 @@
             if (err) {
                 res.status(500).send(err);
             }
-
-            res.json({
-                success: true,
-                message: 'Note has been added!',
-                data: note
-            });
+            else {
+                res.json({
+                    success: true,
+                    message: 'Note has been added!'
+                });
+            }
         });
     };
 
@@ -33,10 +33,12 @@
             if (err) {
                 res.status(500).send(err);
             }
-            res.json({
-                success: true,
-                data: notes
-            });
+            else {
+                res.json({
+                    success: true,
+                    data: notes
+                });
+            }
         });
     };
 
@@ -46,11 +48,12 @@
             if (err) {
                 res.status(500).send(err);
             }
-
-            res.json({
-                success: true,
-                data: note
-            });
+            else {
+                res.json({
+                    success: true,
+                    data: note
+                });
+            }
         });
     };
 
@@ -60,34 +63,41 @@
             if (err) {
                 res.status(500).send(err);
             }
-            //console.log(req.body);
-            // Update only data that exists in request
-            if (req.body.title) {
-                note.title = req.body.title;
-            }
-            if (req.body.detail) {
-                note.detail = req.body.detail;
-            }
-            if (req.body.priority) {
-                note.priority = req.body.priority;
-            }
-            if (req.body.isMarkCompleted) {
-                note.isMarkCompleted = req.body.isMarkCompleted;
-            }
+            else {
 
-            note.updated_at = Date.now();
+                note.title = req.body.title || note.title;
+                note.detail = req.body.detail || note.detail;
+                note.priority = req.body.priority || note.priority;
+                note.isMarkCompleted = req.body.isMarkCompleted || note.isMarkCompleted;
+                note.updated_at = Date.now();
 
-            note.save(function (err) {
-                if (err) {
-                    res.status(500).send(err);
-                }
+                note.save(function (err) {
+                    if (err) {
+                        res.status(500).send(err);
+                    }
+                    else {
+                        res.json({
+                            success: true,
+                            message: 'Note updated.'
+                        });
+                    }
+                });
+            }
+        });
+    };
 
+    // Delete /api/note/:id/
+    noteController.deleteNote = function (req, res) {
+        Note.findByIdAndRemove({ _id: req.params.id }, function (err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            else {
                 res.json({
                     success: true,
-                    message: 'Note updated.',
-                    data: note
+                    message: 'Note successfully deleted.'
                 });
-            });
+            }
         });
     };
 })(module.exports);

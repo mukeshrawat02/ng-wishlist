@@ -8,7 +8,8 @@
 
         apiRouter.route('/notes/:id')
             .put(noteController.updateNote)
-            .get(noteController.getNote);
+            .get(noteController.getNote)
+            .delete(noteController.deleteNote);
     };
 
 })(module.exports);

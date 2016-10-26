@@ -8,7 +8,6 @@
         },
         detail: String,
         isMarkCompleted: Boolean,
-        isMarkDeleted: Boolean,
         priority : {
             type: String,
             enum: ['High', 'Medium', 'Low']

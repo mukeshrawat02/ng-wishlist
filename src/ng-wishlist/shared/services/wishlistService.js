@@ -29,11 +29,16 @@
             return NoteService.update({ id: _id }, note);
         }
 
+        function remove(_id) {
+            return NoteService.remove({ id: _id });
+        }
+
         return {
             getNotes: getAll,
             getNote: get,
             updateNote: update,
-            addNote: create
+            addNote: create,
+            deleteNote: remove
         };
     };
 }());

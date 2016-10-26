@@ -16,8 +16,16 @@ gulp.task('test', function () {
         .on('error', gutil.log);
 });
 
+gulp.task('set-dev-node-env', function () {
+    return process.env.NODE_ENV = 'development';
+});
+
+gulp.task('set-prod-node-env', function () {
+    return process.env.NODE_ENV = 'production';
+});
+
 // start our server and listen for changes
-gulp.task('default', function () {
+gulp.task('dev', ['set-dev-node-env'], function () {
     // configure nodemon
     nodemon({
         // the script to run the app
